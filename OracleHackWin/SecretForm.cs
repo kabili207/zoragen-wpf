@@ -25,7 +25,8 @@ namespace OracleHack
 				string num = Regex.Replace(ctl.Name, @"\D", "");
 				int id = int.Parse(num);
 				txtSymbolId.Text = num;
-				txtSymbolHex.Text = new string(Convert.ToString(id, 2).PadLeft(6, '0').Reverse().ToArray());
+				txtSymbolHex.Text = new string(Convert.ToString(id, 2).PadLeft(6, '0').Reverse()
+					.ToArray());
 				//txtSymbolHex.Text = Convert.ToString(id, 2).PadLeft(6, '0');
 				/*pics[currentPic].Image = (Bitmap)Properties.Resources.ResourceManager.GetObject("_" + num);
 				if (currentPic < 19)

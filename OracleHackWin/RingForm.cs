@@ -12,6 +12,7 @@ namespace OracleHack
 	public partial class RingForm : Form
 	{
 		private bool[] _selectedRings;
+
 		public bool[] SelectedRings
 		{
 			get { return _selectedRings; }
@@ -40,8 +41,7 @@ namespace OracleHack
 			try
 			{
 				SelectedRings[e.Index] = e.NewValue == CheckState.Checked;
-			}
-			catch
+			} catch
 			{
 
 			}

@@ -45,7 +45,7 @@ namespace OracleHack
 				txtKid.Text = info.KidName;
 				cmbAnimal.SelectedItem = info.Animal;
 				
-				switch(info.Version)
+				switch (info.Version)
 				{
 					case GameType.Ages:
 						rdoAges.Checked = true;
@@ -68,7 +68,7 @@ namespace OracleHack
 			if (cmbAnimal.SelectedItem is AnimalType)
 			{
 				AnimalType type = (AnimalType)cmbAnimal.SelectedItem;
-				switch(type)
+				switch (type)
 				{
 					case AnimalType.Ricky:
 						picAnimal.Image = Properties.Resources.Ricky;
