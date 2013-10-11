@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -64,6 +64,12 @@
     <Compile Include="SaveEditor.Designer.cs">
       <DependentUpon>SaveEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="SecretControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecretControl.Designer.cs">
+      <DependentUpon>SecretControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="SecretForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SaveEditor.resx">
       <DependentUpon>SaveEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecretControl.resx">
+      <DependentUpon>SecretControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SecretForm.resx">
       <DependentUpon>SecretForm.cs</DependentUpon>

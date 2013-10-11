@@ -83,7 +83,7 @@
             "Like Like Ring           | Become a Like-Like",
             "Subrosian Ring           | Become a Subrosian",
             "First Gen Ring           | Become something",
-            " Spin Ring                | Double Spin Attack",
+            "Spin Ring                | Double Spin Attack",
             "Bombproof Ring           | No damage from your own Bombs",
             "Energy Ring              | Beam replaces Spin Attack",
             "Dbl. Edge Ring           | Sword damage > but you get hurt",

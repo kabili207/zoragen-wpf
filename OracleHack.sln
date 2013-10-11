@@ -5,20 +5,43 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleHackWin", "OracleHack
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleHack", "OracleHack\OracleHack.csproj", "{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleWin", "OracleWin\OracleWin.csproj", "{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|x86 = Debug|x86
+		Release|Mixed Platforms = Release|Mixed Platforms
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D128BB3A-EE01-4973-B4F6-94DA561C576F}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{D128BB3A-EE01-4973-B4F6-94DA561C576F}.Debug|Mixed Platforms.Build.0 = Debug|x86
 		{D128BB3A-EE01-4973-B4F6-94DA561C576F}.Debug|x86.ActiveCfg = Debug|x86
 		{D128BB3A-EE01-4973-B4F6-94DA561C576F}.Debug|x86.Build.0 = Debug|x86
+		{D128BB3A-EE01-4973-B4F6-94DA561C576F}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{D128BB3A-EE01-4973-B4F6-94DA561C576F}.Release|Mixed Platforms.Build.0 = Release|x86
 		{D128BB3A-EE01-4973-B4F6-94DA561C576F}.Release|x86.ActiveCfg = Release|x86
 		{D128BB3A-EE01-4973-B4F6-94DA561C576F}.Release|x86.Build.0 = Release|x86
+		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Debug|x86.Build.0 = Debug|Any CPU
+		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Release|x86.ActiveCfg = Release|Any CPU
 		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Release|x86.Build.0 = Release|Any CPU
+		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Debug|x86.ActiveCfg = Debug|x86
+		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Debug|x86.Build.0 = Debug|x86
+		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Release|Mixed Platforms.Build.0 = Release|x86
+		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Release|x86.ActiveCfg = Release|x86
+		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
@@ -51,8 +74,5 @@ Global
 		$2.inheritsSet = Mono
 		$2.inheritsScope = text/x-csharp
 		$2.scope = text/x-csharp
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

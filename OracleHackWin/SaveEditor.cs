@@ -13,13 +13,14 @@ namespace OracleHack
 {
 	public partial class SaveEditor : Form
 	{
+		private VbaGameInfo _info;
 		
 		public string SaveFile { get; set; }
 
 		public SaveEditor()
 		{
 			InitializeComponent();
-			cmbAnimal.DataSource = Enum.GetValues(typeof(AnimalType));
+			cmbAnimal.DataSource = Enum.GetValues(typeof(VbaAnimalType));
 			ringBits = new bool[64];
 		}
 
@@ -38,19 +39,19 @@ namespace OracleHack
 			
 			using (FileStream fsSource = new FileStream(SaveFile, FileMode.Open, FileAccess.Read))
 			{
-				GameInfo info = GameInfo.Load(fsSource);
+				_info = VbaGameInfo.Load(fsSource);
 
-				nudGameId.Value = info.GameId;
-				txtHero.Text = info.HeroName;
-				txtKid.Text = info.KidName;
-				cmbAnimal.SelectedItem = info.Animal;
-				
-				switch (info.Version)
+				nudGameId.Value = _info.GameId;
+				txtHero.Text = _info.HeroName;
+				txtKid.Text = _info.KidName;
+				cmbAnimal.SelectedItem = _info.Animal;
+
+				switch (_info.Version)
 				{
-					case GameType.Ages:
+					case VbaGameType.Ages:
 						rdoAges.Checked = true;
 						break;
-					case GameType.Seasons:
+					case VbaGameType.Seasons:
 						rdoSeasons.Checked = true;
 						break;
 					default:
@@ -65,18 +66,18 @@ namespace OracleHack
 
 		private void cmbAnimal_SelectedValueChanged(object sender, EventArgs e)
 		{
-			if (cmbAnimal.SelectedItem is AnimalType)
+			if (cmbAnimal.SelectedItem is VbaAnimalType)
 			{
-				AnimalType type = (AnimalType)cmbAnimal.SelectedItem;
+				VbaAnimalType type = (VbaAnimalType)cmbAnimal.SelectedItem;
 				switch (type)
 				{
-					case AnimalType.Ricky:
+					case VbaAnimalType.Ricky:
 						picAnimal.Image = Properties.Resources.Ricky;
 						break;
-					case AnimalType.Dimitri:
+					case VbaAnimalType.Dimitri:
 						picAnimal.Image = Properties.Resources.Dimitri;
 						break;
-					case AnimalType.Moosh:
+					case VbaAnimalType.Moosh:
 						picAnimal.Image = Properties.Resources.Moosh;
 						break;
 					default:
@@ -92,10 +93,9 @@ namespace OracleHack
 
 		private void btnRings_Click(object sender, EventArgs e)
 		{
-			if (ringBits == null)
-				ringBits = new bool[64];
+
 			RingForm form = new RingForm();
-			form.SelectedRings = ringBits;
+			form.Rings = _info.Rings;
 			form.ShowDialog();
 		}
 
