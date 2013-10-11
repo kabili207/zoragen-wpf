@@ -8,7 +8,7 @@
     <ProjectGuid>{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Zyrenth.OracleHack.WPF</RootNamespace>
+    <RootNamespace>Zyrenth.OracleHack.Wpf</RootNamespace>
     <AssemblyName>OracleWin</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
@@ -40,8 +40,14 @@
     <ApplicationIcon>Farore.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -50,6 +56,8 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -63,6 +71,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BitmapToImageConverter.cs" />
+    <Compile Include="ImageButton.xaml.cs">
+      <DependentUpon>ImageButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ResXWebRequestFactory.cs" />
+    <Compile Include="RingDetails.cs" />
+    <Compile Include="RingWindow.xaml.cs">
+      <DependentUpon>RingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SecretDecoder.xaml.cs">
+      <DependentUpon>SecretDecoder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SecretControl.xaml.cs">
+      <DependentUpon>SecretControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSecretsWindow.xaml.cs">
+      <DependentUpon>ViewSecretsWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ImageButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -75,6 +105,22 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="RingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SecretDecoder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SecretControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewSecretsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -118,6 +164,75 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Symbols\00.png" />
+    <Resource Include="Images\Symbols\01.png" />
+    <Resource Include="Images\Symbols\02.png" />
+    <Resource Include="Images\Symbols\03.png" />
+    <Resource Include="Images\Symbols\04.png" />
+    <Resource Include="Images\Symbols\05.png" />
+    <Resource Include="Images\Symbols\06.png" />
+    <Resource Include="Images\Symbols\07.png" />
+    <Resource Include="Images\Symbols\08.png" />
+    <Resource Include="Images\Symbols\09.png" />
+    <Resource Include="Images\Symbols\10.png" />
+    <Resource Include="Images\Symbols\11.png" />
+    <Resource Include="Images\Symbols\12.png" />
+    <Resource Include="Images\Symbols\13.png" />
+    <Resource Include="Images\Symbols\14.png" />
+    <Resource Include="Images\Symbols\15.png" />
+    <Resource Include="Images\Symbols\16.png" />
+    <Resource Include="Images\Symbols\17.png" />
+    <Resource Include="Images\Symbols\18.png" />
+    <Resource Include="Images\Symbols\19.png" />
+    <Resource Include="Images\Symbols\20.png" />
+    <Resource Include="Images\Symbols\21.png" />
+    <Resource Include="Images\Symbols\22.png" />
+    <Resource Include="Images\Symbols\23.png" />
+    <Resource Include="Images\Symbols\24.png" />
+    <Resource Include="Images\Symbols\25.png" />
+    <Resource Include="Images\Symbols\26.png" />
+    <Resource Include="Images\Symbols\27.png" />
+    <Resource Include="Images\Symbols\28.png" />
+    <Resource Include="Images\Symbols\29.png" />
+    <Resource Include="Images\Symbols\30.png" />
+    <Resource Include="Images\Symbols\31.png" />
+    <Resource Include="Images\Symbols\32.png" />
+    <Resource Include="Images\Symbols\33.png" />
+    <Resource Include="Images\Symbols\34.png" />
+    <Resource Include="Images\Symbols\35.png" />
+    <Resource Include="Images\Symbols\36.png" />
+    <Resource Include="Images\Symbols\37.png" />
+    <Resource Include="Images\Symbols\38.png" />
+    <Resource Include="Images\Symbols\39.png" />
+    <Resource Include="Images\Symbols\40.png" />
+    <Resource Include="Images\Symbols\41.png" />
+    <Resource Include="Images\Symbols\42.png" />
+    <Resource Include="Images\Symbols\43.png" />
+    <Resource Include="Images\Symbols\44.png" />
+    <Resource Include="Images\Symbols\45.png" />
+    <Resource Include="Images\Symbols\46.png" />
+    <Resource Include="Images\Symbols\47.png" />
+    <Resource Include="Images\Symbols\48.png" />
+    <Resource Include="Images\Symbols\49.png" />
+    <Resource Include="Images\Symbols\50.png" />
+    <Resource Include="Images\Symbols\51.png" />
+    <Resource Include="Images\Symbols\52.png" />
+    <Resource Include="Images\Symbols\53.png" />
+    <Resource Include="Images\Symbols\54.png" />
+    <Resource Include="Images\Symbols\55.png" />
+    <Resource Include="Images\Symbols\56.png" />
+    <Resource Include="Images\Symbols\57.png" />
+    <Resource Include="Images\Symbols\58.png" />
+    <Resource Include="Images\Symbols\59.png" />
+    <Resource Include="Images\Symbols\60.png" />
+    <Resource Include="Images\Symbols\61.png" />
+    <Resource Include="Images\Symbols\62.png" />
+    <Resource Include="Images\Symbols\63.png" />
+    <Resource Include="Images\exit.png" />
+    <Resource Include="Images\filenew.png" />
+    <Resource Include="Images\fileopen.png" />
+    <Resource Include="Images\filesave.png" />
+    <Resource Include="Images\filesaveas.png" />
     <Content Include="libs\Xceed.Wpf.Toolkit.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
