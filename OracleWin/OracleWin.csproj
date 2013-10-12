@@ -77,9 +77,6 @@
     </Compile>
     <Compile Include="ResXWebRequestFactory.cs" />
     <Compile Include="RingDetails.cs" />
-    <Compile Include="RingWindow.xaml.cs">
-      <DependentUpon>RingWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SecretDecoder.xaml.cs">
       <DependentUpon>SecretDecoder.xaml</DependentUpon>
     </Compile>
@@ -105,10 +102,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="RingWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="SecretDecoder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -20,7 +20,6 @@ namespace Zyrenth.OracleHack.Wpf
 	public partial class MainWindow : Window
 	{
 
-
 		public GameInfo GameInfo
 		{
 			get { return (GameInfo)GetValue(GameInfoProperty); }
@@ -31,29 +30,36 @@ namespace Zyrenth.OracleHack.Wpf
 		public static readonly DependencyProperty GameInfoProperty =
 			DependencyProperty.Register("GameInfo", typeof(GameInfo), typeof(MainWindow), new PropertyMetadata(null));
 
-		
+		private static List<RingDetails> _availableRings;
+
+		static MainWindow()
+		{
+			Type ringType = typeof(Rings);
+			Type infoType = typeof(RingInfoAttribute);
+
+			Array values = Enum.GetValues(ringType);
+			_availableRings = values.OfType<Rings>().Select(x =>
+			{
+				RingInfoAttribute attr = ringType.GetMember(x.ToString())[0].GetCustomAttributes(infoType, false)
+					.Cast<RingInfoAttribute>().SingleOrDefault();
+				if (attr == null)
+					return null;
+				return new RingDetails(x, attr.name, attr.description, x.GetImage());
+			}).Where(x => x != null).OrderBy(x => (ulong)x.EnumValue).ToList();
+
+		}
 
 		public MainWindow()
 		{
 			InitializeComponent();
-		}
-
-		private void btnRings_Click(object sender, RoutedEventArgs e)
-		{
-			RingWindow window = new RingWindow();
-			window.Owner = this;
-			window.ShowDialog();
+			// Create a new GameInfo so we don't have to check for one later
+			lstRings.ItemsSource = _availableRings;
+			GameInfo = new GameInfo();
 		}
 
 		private void btnDecodeSecrets_Click(object sender, RoutedEventArgs e)
 		{
-			SecretDecoder decoder = new SecretDecoder();
-			decoder.Owner = this;
-			decoder.ShowDialog();
-			if (decoder.GameInfo != null)
-			{
-				GameInfo = decoder.GameInfo;
-			}
+
 		}
 
 		private void miFileNew_Click(object sender, RoutedEventArgs e)
@@ -79,6 +85,23 @@ namespace Zyrenth.OracleHack.Wpf
 		private void miFileClose_Click(object sender, RoutedEventArgs e)
 		{
 
+		}
+
+		private void miSecretsGame_Click(object sender, RoutedEventArgs e)
+		{
+			SecretDecoder decoder = new SecretDecoder();
+			decoder.Owner = this;
+			decoder.GameInfo = GameInfo;
+			decoder.ShowDialog();
+		}
+
+		private void miSecretsRing_Click(object sender, RoutedEventArgs e)
+		{
+			SecretDecoder decoder = new SecretDecoder(15);
+			decoder.Mode = SecretDecoder.SecretType.Ring;
+			decoder.Owner = this;
+			decoder.GameInfo = GameInfo;
+			decoder.ShowDialog();
 		}
 
 		private void miHelpAbout_Click(object sender, RoutedEventArgs e)

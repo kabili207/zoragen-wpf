@@ -23,6 +23,10 @@ namespace Zyrenth.OracleHack.Wpf
 		private int currentPic;
 		private int _secretLength;
 
+		public enum SecretType { Game, Ring, Memory }
+
+		public SecretType Mode = SecretType.Game;
+
 		public GameInfo GameInfo { get; set; }
 
 		public SecretDecoder()
@@ -77,9 +81,22 @@ namespace Zyrenth.OracleHack.Wpf
 		{
 			try
 			{
-				GameInfo info = new GameInfo();
-				info.ReadGameSecret(data);
-				GameInfo = info;
+				if (GameInfo == null)
+					GameInfo = new GameInfo();
+
+				switch (Mode)
+				{
+					case SecretType.Game:
+						GameInfo.ReadGameSecret(data);
+						break;
+					case SecretType.Ring:
+						GameInfo.SetRings(data);
+						break;
+					case SecretType.Memory:
+						// TODO: Handle these
+						break;
+				}
+
 				this.Close();
 			}
 			catch (Exception ex)
