@@ -72,11 +72,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BitmapToImageConverter.cs" />
+    <Compile Include="EnumRadioButton.cs" />
     <Compile Include="ImageButton.xaml.cs">
       <DependentUpon>ImageButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MultiValueConverterAdapter.cs" />
     <Compile Include="ResXWebRequestFactory.cs" />
     <Compile Include="RingDetails.cs" />
+    <Compile Include="RingFlagValueConverter.cs" />
     <Compile Include="SecretDecoder.xaml.cs">
       <DependentUpon>SecretDecoder.xaml</DependentUpon>
     </Compile>

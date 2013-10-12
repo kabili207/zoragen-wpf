@@ -42,7 +42,6 @@ namespace Zyrenth.OracleHack.Wpf
 			_secretLength = length;
 		}
 
-
 		private void SymbolButton_Click(object sender, RoutedEventArgs e)
 		{
 			Control ctl = sender as Control;
@@ -64,6 +63,7 @@ namespace Zyrenth.OracleHack.Wpf
 				}
 			}
 		}
+
 		private void btnReset_Click(object sender, RoutedEventArgs e)
 		{
 			uxSecretDisplay.Reset();

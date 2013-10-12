@@ -10,10 +10,10 @@ namespace Zyrenth.OracleHack.Wpf
 	[DebuggerDisplay("\\{ EnumValue = {EnumValue}, Name = {Name}, Description = {Description}, Image = {Image} \\}")]
 	public sealed class RingDetails : IEquatable<RingDetails>
 	{
-		private readonly Rings _EnumValue;
-		private readonly string _Name;
-		private readonly string _Description;
-		private readonly Bitmap _Image;
+		private Rings _EnumValue;
+		private string _Name;
+		private string _Description;
+		private Bitmap _Image;
 
 		public RingDetails(Rings enumValue, string name, string description, Bitmap image)
 		{
@@ -59,31 +59,23 @@ namespace Zyrenth.OracleHack.Wpf
 
 		public Rings EnumValue
 		{
-			get
-			{
-				return _EnumValue;
-			}
+			get { return _EnumValue; }
+			set { _EnumValue = value; }
 		}
 		public string Name
 		{
-			get
-			{
-				return _Name;
-			}
+			get { return _Name; }
+			set { _Name = value; }
 		}
 		public string Description
 		{
-			get
-			{
-				return _Description;
-			}
+			get { return _Description; }
+			set { _Description = value; }
 		}
 		public Bitmap Image
 		{
-			get
-			{
-				return _Image;
-			}
+			get { return _Image; }
+			set { _Image = value; }
 		}
 	}
 }

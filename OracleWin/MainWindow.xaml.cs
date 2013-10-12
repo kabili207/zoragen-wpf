@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace Zyrenth.OracleHack.Wpf
 {
@@ -31,6 +32,7 @@ namespace Zyrenth.OracleHack.Wpf
 			DependencyProperty.Register("GameInfo", typeof(GameInfo), typeof(MainWindow), new PropertyMetadata(null));
 
 		private static List<RingDetails> _availableRings;
+		private string CurrentFileName;
 
 		static MainWindow()
 		{
@@ -57,34 +59,32 @@ namespace Zyrenth.OracleHack.Wpf
 			GameInfo = new GameInfo();
 		}
 
-		private void btnDecodeSecrets_Click(object sender, RoutedEventArgs e)
-		{
-
-		}
-
 		private void miFileNew_Click(object sender, RoutedEventArgs e)
 		{
-
+			GameInfo = new GameInfo();
 		}
 
 		private void miFileOpen_Click(object sender, RoutedEventArgs e)
 		{
-
+			OpenFile();
 		}
 
 		private void miFileSave_Click(object sender, RoutedEventArgs e)
 		{
-
+			if (string.IsNullOrWhiteSpace(CurrentFileName))
+				SaveAsFile();
+			else
+				SaveFile();
 		}
 
 		private void miFileSaveAs_Click(object sender, RoutedEventArgs e)
 		{
-
+			SaveAsFile();
 		}
 
 		private void miFileClose_Click(object sender, RoutedEventArgs e)
 		{
-
+			this.Close();
 		}
 
 		private void miSecretsGame_Click(object sender, RoutedEventArgs e)
@@ -107,6 +107,44 @@ namespace Zyrenth.OracleHack.Wpf
 		private void miHelpAbout_Click(object sender, RoutedEventArgs e)
 		{
 
+		}
+
+		private void SaveFile()
+		{
+			GameInfo.Write(CurrentFileName);
+		}
+
+		private void SaveAsFile()
+		{
+			SaveFileDialog save = new SaveFileDialog();
+			save.Filter = "Zelda Oracle files (*.zora)|*.zora";
+			save.FilterIndex = 1;
+			if (save.ShowDialog() == true)
+			{
+				GameInfo.Write(save.OpenFile());
+				CurrentFileName = save.FileName;
+			}
+		}
+
+		private void OpenFile()
+		{
+			OpenFileDialog openFile = new OpenFileDialog();
+			openFile.Filter = "Zelda Oracle files (*.zora)|*.zora";
+			openFile.FilterIndex = 1;
+			openFile.Multiselect = false;
+			if (openFile.ShowDialog() == true)
+			{
+				try
+				{
+					GameInfo = GameInfo.Load(openFile.FileName);
+					CurrentFileName = openFile.FileName;
+				}
+				catch(Exception ex)
+				{
+					MessageBox.Show("Unable to load game info." + Environment.NewLine + ex.Message, "Unable to load game info",
+						MessageBoxButton.OK, MessageBoxImage.Error);
+				}
+			}
 		}
 	}
 }

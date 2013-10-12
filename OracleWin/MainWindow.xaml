@@ -14,44 +14,44 @@
                 <x:Type TypeName="oracle:Animal"/>
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
-        
+
         <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type sys:Enum}" x:Key="odpBehavior">
             <ObjectDataProvider.MethodParameters>
                 <x:Type TypeName="oracle:ChildBehavior"/>
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
-        
-        <local:BitmapToImageSourceConverter x:Key="BitmapConverter" />
 
+        <local:BitmapToImageSourceConverter x:Key="BitmapConverter" />
+        <oracle:CharacterImageProxy x:Key="CharacterImages" />
     </Window.Resources>
-	<DockPanel>
-		<Menu x:Name="mnuMain" DockPanel.Dock="Top">
-			<MenuItem Header="_File">
-				<MenuItem x:Name="miFileNew" Header="_New" Click="miFileNew_Click">
-					<MenuItem.Icon>
-						<Image Source="Images/filenew.png"  />
-					</MenuItem.Icon>
-				</MenuItem>
-				<MenuItem x:Name="miFileOpen" Header="_Open" Click="miFileOpen_Click" >
-					<MenuItem.Icon>
-						<Image Source="Images/fileopen.png"  />
-					</MenuItem.Icon>
-				</MenuItem>
-				<MenuItem x:Name="miFileSave" Header="_Save" Click="miFileSave_Click" >
-					<MenuItem.Icon>
-						<Image Source="Images/filesave.png"  />
-					</MenuItem.Icon>
-				</MenuItem>
-				<MenuItem x:Name="miFileSaveAs" Header="Save _As" Click="miFileSaveAs_Click" >
-					<MenuItem.Icon>
-						<Image Source="Images/filesaveas.png"  />
-					</MenuItem.Icon>
-				</MenuItem>
-				<MenuItem x:Name="miFileClose" Header="_Close" Click="miFileClose_Click" >
-					<MenuItem.Icon>
-						<Image Source="Images/exit.png" />
-					</MenuItem.Icon>
-				</MenuItem>
+    <DockPanel>
+        <Menu x:Name="mnuMain" DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem x:Name="miFileNew" Header="_New" Click="miFileNew_Click">
+                    <MenuItem.Icon>
+                        <Image Source="Images/filenew.png"  />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="miFileOpen" Header="_Open" Click="miFileOpen_Click" >
+                    <MenuItem.Icon>
+                        <Image Source="Images/fileopen.png"  />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="miFileSave" Header="_Save" Click="miFileSave_Click" >
+                    <MenuItem.Icon>
+                        <Image Source="Images/filesave.png"  />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="miFileSaveAs" Header="Save _As" Click="miFileSaveAs_Click" >
+                    <MenuItem.Icon>
+                        <Image Source="Images/filesaveas.png"  />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="miFileClose" Header="_Close" Click="miFileClose_Click" >
+                    <MenuItem.Icon>
+                        <Image Source="Images/exit.png" />
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
             <MenuItem x:Name="miSecrets" Header="_Secrets">
                 <MenuItem x:Name="miSecretsGame" Header="Load _Game Secret" Click="miSecretsGame_Click">
@@ -67,37 +67,45 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
-		<Grid DataContext="{Binding Path=GameInfo, ElementName=window}" >
-			<GroupBox Header="Secret For..." Height="79" HorizontalAlignment="Left" Margin="23,12,0,0" Name="groupBox1" VerticalAlignment="Top" Width="111">
-				<Grid>
-					<Image Height="20" HorizontalAlignment="Left" Margin="6,6,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="20" Source="/OracleWin;component/Images/Nayru.gif" />
-					<Image Height="20" HorizontalAlignment="Left" Margin="6,32,0,0" Name="image2" Source="/OracleWin;component/Images/Din.gif" Stretch="Fill" VerticalAlignment="Top" Width="20" />
-					<RadioButton Content="Ages" Height="16" HorizontalAlignment="Left" Margin="32,8,0,0" Name="radioButton1" VerticalAlignment="Top" IsChecked="True" />
-					<RadioButton Content="Seasons" Height="16" HorizontalAlignment="Left" Margin="32,34,0,0" Name="radioButton2" VerticalAlignment="Top" />
-				</Grid>
-			</GroupBox>
-			<GroupBox Header="Game Type" Height="79" HorizontalAlignment="Left" Margin="140,12,0,0" Name="groupBox2" VerticalAlignment="Top" Width="111">
-				<Grid>
-					<RadioButton Content="Linked Quest" Height="16" HorizontalAlignment="Left" Margin="6,8,0,0" Name="radioButton3" VerticalAlignment="Top" IsChecked="True" />
-					<RadioButton Content="Hero's Quest" Height="16" HorizontalAlignment="Left" Margin="6,34,0,0" Name="radioButton4" VerticalAlignment="Top" />
-				</Grid>
-			</GroupBox>
-			<TextBox Text="{Binding Hero}" Height="23" HorizontalAlignment="Left" Margin="56,111,0,0" Name="textBox1" VerticalAlignment="Top" Width="68" MaxLength="5" />
-			<xceed:ShortUpDown Text="{Binding GameID}" Height="23" HorizontalAlignment="Left" Margin="56,140,0,0" Name="textBox2" VerticalAlignment="Top" Width="68" Minimum="0" />
-			<TextBox Text="{Binding Child}" Height="23" HorizontalAlignment="Left" Margin="187,111,0,0" Name="textBox3" VerticalAlignment="Top" Width="68" MaxLength="5" />
+        <Grid DataContext="{Binding Path=GameInfo, ElementName=window}" x:Name="grid" >
+            <GroupBox Header="Secret For..." Height="79" HorizontalAlignment="Left" Margin="23,12,0,0" Name="groupBox1" VerticalAlignment="Top" Width="111">
+                <Grid>
+                    <Image Height="20" HorizontalAlignment="Left" Margin="6,6,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="20" Source="/OracleWin;component/Images/Nayru.gif" />
+                    <Image Height="20" HorizontalAlignment="Left" Margin="6,32,0,0" Name="image2" Source="/OracleWin;component/Images/Din.gif" Stretch="Fill" VerticalAlignment="Top" Width="20" />
+                    <local:EnumRadioButton Content="Ages" EnumBinding="{Binding Game}" EnumValue="Ages" Height="16" HorizontalAlignment="Left" Margin="32,8,0,0" x:Name="rdoAges" VerticalAlignment="Top" IsChecked="True" />
+                    <local:EnumRadioButton Content="Seasons" EnumBinding="{Binding Game}" EnumValue="Seasons" Height="16" HorizontalAlignment="Left" Margin="32,34,0,0" x:Name="rdoSeasons" VerticalAlignment="Top" />
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="Game Type" Height="79" HorizontalAlignment="Left" Margin="140,12,0,0" Name="groupBox2" VerticalAlignment="Top" Width="111">
+                <Grid>
+                    <local:EnumRadioButton Content="Linked Quest" EnumBinding="{Binding Quest}" EnumValue="LinkedGame" Height="16" HorizontalAlignment="Left" Margin="6,8,0,0" x:Name="rdoLinked" VerticalAlignment="Top" IsChecked="True" />
+                    <local:EnumRadioButton Content="Hero's Quest" EnumBinding="{Binding Quest}" EnumValue="HerosSecret" Height="16" HorizontalAlignment="Left" Margin="6,34,0,0" x:Name="rdoHero" VerticalAlignment="Top" />
+                </Grid>
+            </GroupBox>
+            <TextBox Text="{Binding Hero}" Height="23" HorizontalAlignment="Left" Margin="56,111,0,0" Name="textBox1" VerticalAlignment="Top" Width="68" MaxLength="5" />
+            <xceed:ShortUpDown Text="{Binding GameID}" Height="23" HorizontalAlignment="Left" Margin="56,140,0,0" Name="textBox2" VerticalAlignment="Top" Width="68" Minimum="0" />
+            <TextBox Text="{Binding Child}" Height="23" HorizontalAlignment="Left" Margin="187,111,0,0" Name="textBox3" VerticalAlignment="Top" Width="68" MaxLength="5" />
             <ComboBox SelectedItem="{Binding Animal}" ItemsSource="{Binding Source={StaticResource odpAnimal}}" Height="23" HorizontalAlignment="Left" Margin="56,169,0,0" Name="comboBox1" VerticalAlignment="Top" Width="68" />
             <ComboBox SelectedItem="{Binding Behavior}" ItemsSource="{Binding Source={StaticResource odpBehavior}}" Height="23" HorizontalAlignment="Left" Margin="187,140,0,0" Name="comboBox2" VerticalAlignment="Top" Width="68" />
-			<TextBlock HorizontalAlignment="Left" Margin="16,114,0,0" Name="textBlock1" Text="Hero" VerticalAlignment="Top" />
-			<TextBlock HorizontalAlignment="Left" Margin="16,144,0,0" Name="textBlock2" Text="ID" VerticalAlignment="Top" />
-			<TextBlock HorizontalAlignment="Left" Margin="16,172,0,0" Name="textBlock3" Text="Friend" VerticalAlignment="Top" />
-			<TextBlock HorizontalAlignment="Left" Margin="135,114,0,0" Name="textBlock4" Text="Child" VerticalAlignment="Top" />
-			<TextBlock HorizontalAlignment="Left" Margin="135,144,0,0" Name="textBlock5" Text="Behavior" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="16,114,0,0" Name="textBlock1" Text="Hero" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="16,144,0,0" Name="textBlock2" Text="ID" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="16,172,0,0" Name="textBlock3" Text="Friend" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="135,114,0,0" Name="textBlock4" Text="Child" VerticalAlignment="Top" />
+            <TextBlock HorizontalAlignment="Left" Margin="135,144,0,0" Name="textBlock5" Text="Behavior" VerticalAlignment="Top" />
             <ListBox x:Name="lstRings" Margin="266,29,6,15" ScrollViewer.CanContentScroll="True" >
-
+                <ListBox.Resources>
+                    <local:RingFlagValueConverter x:Key="RingsConverter" />
+                </ListBox.Resources>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" >
-                            <CheckBox VerticalAlignment="Center" />
+                            <CheckBox VerticalAlignment="Center">
+                                <CheckBox.IsChecked>
+                                    <local:ConverterBindableBinding Binding="{Binding GameInfo.Rings, ElementName=window}"
+                                                                    Converter="{StaticResource RingsConverter}"
+                                                                    ConverterParameterBinding="{Binding EnumValue, Mode=OneWay}" />
+                                </CheckBox.IsChecked>
+                            </CheckBox>
                             <Image Width="18" Height="18" Source="{Binding Path=Image, Converter={StaticResource BitmapConverter}}" VerticalAlignment="Center" />
                             <TextBlock Text="{Binding Path=Name}" VerticalAlignment="Center" />
                             <StackPanel.ToolTip>
@@ -108,6 +116,24 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <TextBlock HorizontalAlignment="Left" Margin="266,12,0,0" Name="textBlock6" Text="Rings" VerticalAlignment="Top" />
+            <Image Height="28" HorizontalAlignment="Left" Margin="130,164,0,0" Name="imgAnimal" Stretch="Fill" VerticalAlignment="Top" Width="32">
+                <Image.Style>
+                    <Style>
+                        <Setter Property="Image.Source" Value="{x:Null}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Animal}" Value="Ricky">
+                                <Setter Property="Image.Source" Value="{Binding Ricky, Source={StaticResource CharacterImages}, Converter={StaticResource BitmapConverter}}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Animal}" Value="Dimitri">
+                                <Setter Property="Image.Source" Value="{Binding Dimitri, Source={StaticResource CharacterImages}, Converter={StaticResource BitmapConverter}}" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Animal}" Value="Moosh">
+                                <Setter Property="Image.Source" Value="{Binding Moosh, Source={StaticResource CharacterImages}, Converter={StaticResource BitmapConverter}}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
         </Grid>
-	</DockPanel>
+    </DockPanel>
 </Window>
