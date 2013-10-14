@@ -28,7 +28,7 @@ namespace Zyrenth.OracleHack.Wpf
 
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, System.Globalization.CultureInfo culture)
         {
-			if (lastConverter == null) return new object[] { value }; // Required for VS design-time
+			if (lastConverter == null) return new object[] { value };
             return new object[] { lastConverter.ConvertBack(value, targetTypes[0], lastParameter, culture) };
         }
 

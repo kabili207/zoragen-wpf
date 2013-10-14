@@ -14,7 +14,6 @@ namespace Zyrenth.OracleHack.Wpf
 	{
 		protected override void OnStartup(StartupEventArgs e)
 		{
-			ResXWebRequestFactory.Register();
 			base.OnStartup(e);
 		}
 	}

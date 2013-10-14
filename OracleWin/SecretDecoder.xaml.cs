@@ -88,12 +88,13 @@ namespace Zyrenth.OracleHack.Wpf
 				{
 					case SecretType.Game:
 						GameInfo.ReadGameSecret(data);
+						//GameInfo.GetDecodedBinary(data);
 						break;
 					case SecretType.Ring:
 						GameInfo.SetRings(data);
 						break;
 					case SecretType.Memory:
-						// TODO: Handle these
+						GameInfo.ReadMemorySecret(data);
 						break;
 				}
 

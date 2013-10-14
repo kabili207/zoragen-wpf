@@ -71,13 +71,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BitmapToImageConverter.cs" />
     <Compile Include="EnumRadioButton.cs" />
     <Compile Include="ImageButton.xaml.cs">
       <DependentUpon>ImageButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="MultiValueConverterAdapter.cs" />
-    <Compile Include="ResXWebRequestFactory.cs" />
     <Compile Include="RingDetails.cs" />
     <Compile Include="RingFlagValueConverter.cs" />
     <Compile Include="SecretDecoder.xaml.cs">
@@ -89,6 +91,10 @@
     <Compile Include="ViewSecretsWindow.xaml.cs">
       <DependentUpon>ViewSecretsWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ImageButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -145,13 +151,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Farore.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Dimitri.gif" />
-    <Resource Include="Images\Din.gif" />
-    <Resource Include="Images\Moosh.gif" />
-    <Resource Include="Images\Nayru.gif" />
-    <Resource Include="Images\Ricky.gif" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OracleHack\OracleHack.csproj">
@@ -229,6 +228,8 @@
     <Resource Include="Images\fileopen.png" />
     <Resource Include="Images\filesave.png" />
     <Resource Include="Images\filesaveas.png" />
+    <Resource Include="Images\Seed_Ages.gif" />
+    <Resource Include="Images\Seed_Seasons.gif" />
     <Content Include="libs\Xceed.Wpf.Toolkit.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

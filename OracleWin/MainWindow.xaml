@@ -6,7 +6,7 @@
         xmlns:oracle="clr-namespace:Zyrenth.OracleHack;assembly=OracleHack"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
 		x:Name="window"
-        Title="Oracle of Secrets" Height="305" Width="446" Icon="/OracleWin;component/Farore.ico" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Oracle of Secrets" Height="305" Width="446" Icon="/OracleWin;component/Farore.ico" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
 
     <Window.Resources>
         <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type sys:Enum}" x:Key="odpAnimal">
@@ -70,8 +70,8 @@
         <Grid DataContext="{Binding Path=GameInfo, ElementName=window}" x:Name="grid" >
             <GroupBox Header="Secret For..." Height="79" HorizontalAlignment="Left" Margin="23,12,0,0" Name="groupBox1" VerticalAlignment="Top" Width="111">
                 <Grid>
-                    <Image Height="20" HorizontalAlignment="Left" Margin="6,6,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="20" Source="/OracleWin;component/Images/Nayru.gif" />
-                    <Image Height="20" HorizontalAlignment="Left" Margin="6,32,0,0" Name="image2" Source="/OracleWin;component/Images/Din.gif" Stretch="Fill" VerticalAlignment="Top" Width="20" />
+                    <Image Height="20" HorizontalAlignment="Left" Margin="6,6,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="20" Source="{Binding Nayru, Source={StaticResource CharacterImages}, Converter={StaticResource BitmapConverter}}" />
+                    <Image Height="20" HorizontalAlignment="Left" Margin="6,32,0,0" Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="20" Source="{Binding Din, Source={StaticResource CharacterImages}, Converter={StaticResource BitmapConverter}}" />
                     <local:EnumRadioButton Content="Ages" EnumBinding="{Binding Game}" EnumValue="Ages" Height="16" HorizontalAlignment="Left" Margin="32,8,0,0" x:Name="rdoAges" VerticalAlignment="Top" IsChecked="True" />
                     <local:EnumRadioButton Content="Seasons" EnumBinding="{Binding Game}" EnumValue="Seasons" Height="16" HorizontalAlignment="Left" Margin="32,34,0,0" x:Name="rdoSeasons" VerticalAlignment="Top" />
                 </Grid>
