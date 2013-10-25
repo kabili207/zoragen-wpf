@@ -87,11 +87,11 @@ namespace Zyrenth.OracleHack.Wpf
 				switch (Mode)
 				{
 					case SecretType.Game:
-						GameInfo.ReadGameSecret(data);
+						GameInfo.LoadGameData(data);
 						//GameInfo.GetDecodedBinary(data);
 						break;
 					case SecretType.Ring:
-						GameInfo.SetRings(data);
+						GameInfo.LoadRings(data);
 						break;
 					case SecretType.Memory:
 						GameInfo.ReadMemorySecret(data);

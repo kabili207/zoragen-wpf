@@ -134,6 +134,7 @@
                     </Style>
                 </Image.Style>
             </Image>
-        </Grid>
+			<Button x:Name="btnGenerate" Content="Generate" HorizontalAlignment="Left" Margin="145,218,0,0" VerticalAlignment="Top" Width="75" Click="btnGenerate_Click" />
+		</Grid>
     </DockPanel>
 </Window>

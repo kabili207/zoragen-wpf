@@ -148,5 +148,12 @@ namespace Zyrenth.OracleHack.Wpf
 				}
 			}
 		}
+
+		private void btnGenerate_Click(object sender, RoutedEventArgs e)
+		{
+			var secretWindow = new ViewSecretsWindow(GameInfo);
+			secretWindow.Owner = this;
+			secretWindow.ShowDialog();
+		}
 	}
 }

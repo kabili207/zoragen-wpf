@@ -18,9 +18,22 @@ namespace Zyrenth.OracleHack.Wpf
 	/// </summary>
 	public partial class ViewSecretsWindow : Window
 	{
+		GameInfo _info;
+
 		public ViewSecretsWindow()
 		{
 			InitializeComponent();
+		}
+
+		public ViewSecretsWindow(GameInfo info) : this()
+		{
+			_info = info;
+			SetSecrets();
+		}
+
+		private void SetSecrets()
+		{
+			uxGameSecret.SetSecret(_info.CreateGameSecret());
 		}
 	}
 }

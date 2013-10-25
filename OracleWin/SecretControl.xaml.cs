@@ -50,13 +50,20 @@ namespace Zyrenth.OracleHack.Wpf
 			Reset();
 			for (int i = 0; i < secret.Length && i < pics.Length; i++)
 			{
-				string num = string.Format("{0:00}", secret[i]);
+				if (secret[i] > 63)
+				{
+					pics[i].Source = null;
+				}
+				else
+				{
+					string num = string.Format("{0:00}", secret[i]);
 
-				var logo = new BitmapImage();
-				logo.BeginInit();
-				logo.UriSource = new Uri(string.Format("pack://application:,,,/OracleWin;component/Images/Symbols/{0}.png", num));
-				logo.EndInit();
-				pics[i].Source = logo;
+					var logo = new BitmapImage();
+					logo.BeginInit();
+					logo.UriSource = new Uri(string.Format("pack://application:,,,/OracleWin;component/Images/Symbols/{0}.png", num));
+					logo.EndInit();
+					pics[i].Source = logo;
+				}
 			}
 		}
 
