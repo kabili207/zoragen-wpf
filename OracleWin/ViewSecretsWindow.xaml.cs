@@ -34,6 +34,7 @@ namespace Zyrenth.OracleHack.Wpf
 		private void SetSecrets()
 		{
 			uxGameSecret.SetSecret(_info.CreateGameSecret());
+			uxRingSecret.SetSecret(_info.CreateRingSecret());
 		}
 	}
 }

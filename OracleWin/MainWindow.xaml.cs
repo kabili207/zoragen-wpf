@@ -104,11 +104,21 @@ namespace Zyrenth.OracleHack.Wpf
 			decoder.ShowDialog();
 		}
 
+		private void miSecretsGenerate_Click(object sender, RoutedEventArgs e)
+		{
+			GenerateSecrets();
+		}
+
 		private void miHelpAbout_Click(object sender, RoutedEventArgs e)
 		{
 			AboutWindow about = new AboutWindow();
 			about.Owner = this;
 			about.ShowDialog();
+		}
+
+		private void btnGenerate_Click(object sender, RoutedEventArgs e)
+		{
+			GenerateSecrets();
 		}
 
 		private void SaveFile()
@@ -149,7 +159,7 @@ namespace Zyrenth.OracleHack.Wpf
 			}
 		}
 
-		private void btnGenerate_Click(object sender, RoutedEventArgs e)
+		private void GenerateSecrets()
 		{
 			var secretWindow = new ViewSecretsWindow(GameInfo);
 			secretWindow.Owner = this;
