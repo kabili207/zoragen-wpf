@@ -83,12 +83,11 @@ namespace Zyrenth.OracleHack.Wpf
 			{
 				if (GameInfo == null)
 					GameInfo = new GameInfo();
-
+				
 				switch (Mode)
 				{
 					case SecretType.Game:
 						GameInfo.LoadGameData(data);
-						//GameInfo.GetDecodedBinary(data);
 						break;
 					case SecretType.Ring:
 						GameInfo.LoadRings(data);
