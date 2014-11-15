@@ -20,7 +20,6 @@ namespace Zyrenth.OracleHack.Wpf
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-
 		public GameInfo GameInfo
 		{
 			get { return (GameInfo)GetValue(GameInfoProperty); }
@@ -34,6 +33,19 @@ namespace Zyrenth.OracleHack.Wpf
 		private static List<RingDetails> _availableRings;
 		private string CurrentFileName;
 
+		public static RoutedCommand DebugCommand = new RoutedCommand();
+
+
+		public bool DebugMode
+		{
+			get { return (bool)GetValue(DebugModeProperty); }
+			set { SetValue(DebugModeProperty, value); }
+		}
+
+		// Using a DependencyProperty as the backing store for DebugMode.  This enables animation, styling, binding, etc...
+		public static readonly DependencyProperty DebugModeProperty =
+			DependencyProperty.Register("DebugMode", typeof(bool), typeof(MainWindow), new UIPropertyMetadata(false));
+		
 		static MainWindow()
 		{
 			Type ringType = typeof(Rings);
@@ -90,8 +102,10 @@ namespace Zyrenth.OracleHack.Wpf
 		private void miSecretsGame_Click(object sender, RoutedEventArgs e)
 		{
 			SecretDecoder decoder = new SecretDecoder();
+			decoder.Mode = SecretDecoder.SecretType.Game;
 			decoder.Owner = this;
 			decoder.GameInfo = GameInfo;
+			decoder.DebugMode = DebugMode;
 			decoder.ShowDialog();
 		}
 
@@ -101,6 +115,7 @@ namespace Zyrenth.OracleHack.Wpf
 			decoder.Mode = SecretDecoder.SecretType.Ring;
 			decoder.Owner = this;
 			decoder.GameInfo = GameInfo;
+			decoder.DebugMode = DebugMode;
 			decoder.ShowDialog();
 		}
 
@@ -164,6 +179,18 @@ namespace Zyrenth.OracleHack.Wpf
 			var secretWindow = new ViewSecretsWindow(GameInfo);
 			secretWindow.Owner = this;
 			secretWindow.ShowDialog();
+		}
+
+		private void miHelpMask_Click(object sender, RoutedEventArgs e)
+		{
+			MaskCalculator window = new MaskCalculator();
+			window.Owner = this;
+			window.ShowDialog();
+		}
+
+		private void DebugCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+		{
+			DebugMode = !DebugMode;
 		}
 	}
 }

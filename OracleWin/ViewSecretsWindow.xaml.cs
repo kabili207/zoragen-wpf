@@ -35,6 +35,32 @@ namespace Zyrenth.OracleHack.Wpf
 		{
 			uxGameSecret.SetSecret(_info.CreateGameSecret());
 			uxRingSecret.SetSecret(_info.CreateRingSecret());
+			if (_info.Game == Game.Ages)
+			{
+				lblMem01.Text = "Clock Shop";
+				lblMem02.Text = "Graveyard";
+				lblMem03.Text = "Subrosian";
+				lblMem04.Text = "Diver";
+				lblMem05.Text = "Smith";
+				lblMem06.Text = "Pirate";
+				lblMem07.Text = "Temple";
+				lblMem08.Text = "Deku";
+				lblMem09.Text = "Biggoron";
+				lblMem10.Text = "Ruul";
+			}
+			else
+			{
+				lblMem01.Text = "King Zora";
+				lblMem02.Text = "Fairy";
+				lblMem03.Text = "Troy";
+				lblMem04.Text = "Plen";
+				lblMem05.Text = "Library";
+				lblMem06.Text = "Tokay";
+				lblMem07.Text = "Mamamu";
+				lblMem08.Text = "Tingle";
+				lblMem09.Text = "Elder";
+				lblMem10.Text = "Symmetry";
+			}
 		}
 	}
 }

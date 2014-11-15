@@ -8,6 +8,14 @@
 		x:Name="window"
         Title="Oracle of Secrets" Height="266" Width="446" Icon="/OracleWin;component/Farore.ico" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
 
+    <Window.CommandBindings>
+        <CommandBinding Command="local:MainWindow.DebugCommand" Executed="DebugCommand_Executed" />
+    </Window.CommandBindings>
+    
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Control+Shift" Key="D" Command="local:MainWindow.DebugCommand" CommandParameter="1.0" />
+    </Window.InputBindings>
+
     <Window.Resources>
         <ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type sys:Enum}" x:Key="odpAnimal">
             <ObjectDataProvider.MethodParameters>
@@ -23,6 +31,7 @@
 
         <local:BitmapToImageSourceConverter x:Key="BitmapConverter" />
         <oracle:CharacterImageProxy x:Key="CharacterImages" />
+        <BooleanToVisibilityConverter x:Key="BoolVisibilityConverter" />
     </Window.Resources>
     <DockPanel>
         <Menu x:Name="mnuMain" DockPanel.Dock="Top">
@@ -67,6 +76,9 @@
             </MenuItem>
             <MenuItem x:Name="miHelp" Header="_Help">
                 <MenuItem x:Name="miHelpAbout" Header="_About" Click="miHelpAbout_Click">
+
+                </MenuItem>
+                <MenuItem x:Name="miHelpMask" Header="_Determine Mask" Click="miHelpMask_Click" Visibility="{Binding DebugMode, ElementName=window, Converter={StaticResource BoolVisibilityConverter}}">
 
                 </MenuItem>
             </MenuItem>

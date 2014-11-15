@@ -1,5 +1,55 @@
-*bin/
-*obj/
+# =========================
+# Our own stuff
+# =========================
+
+*.zora
+
+# =========================
+# Visual Studio crap
+# =========================
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+x64/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Click-Once directory
+publish/
+
+# =========================
+# MonoDevelop files
+# =========================
+
+# User Specific
+*.userprefs
+*.usertasks
+
+#M ono Project Files
 *.pidb
 *.resources
-*.suo
+test-results/
+
+# =========================
+# Windows detritus
+# =========================
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini

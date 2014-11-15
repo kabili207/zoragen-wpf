@@ -29,6 +29,8 @@ namespace Zyrenth.OracleHack.Wpf
 
 		public GameInfo GameInfo { get; set; }
 
+		public bool DebugMode { get; set; }
+
 		public SecretDecoder()
 			: this(20)
 		{
@@ -40,6 +42,11 @@ namespace Zyrenth.OracleHack.Wpf
 			InitializeComponent();
 			data = new byte[length];
 			_secretLength = length;
+		}
+
+		private void Window_Loaded(object sender, RoutedEventArgs e)
+		{
+			grpDebug.Visibility = DebugMode ? Visibility.Visible : Visibility.Collapsed;
 		}
 
 		private void SymbolButton_Click(object sender, RoutedEventArgs e)
