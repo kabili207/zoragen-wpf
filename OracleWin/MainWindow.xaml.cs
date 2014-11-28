@@ -58,7 +58,7 @@ namespace Zyrenth.OracleHack.Wpf
 					.Cast<RingInfoAttribute>().SingleOrDefault();
 				if (attr == null)
 					return null;
-				return new RingDetails(x, attr.name, attr.description, x.GetImage());
+				return new RingDetails(x, attr.name, attr.description);
 			}).Where(x => x != null).OrderBy(x => (ulong)x.EnumValue).ToList();
 
 		}

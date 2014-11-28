@@ -29,8 +29,8 @@
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
 
-        <local:BitmapToImageSourceConverter x:Key="BitmapConverter" />
-        <oracle:CharacterImageProxy x:Key="CharacterImages" />
+		<local:BitmapToImageSourceConverter x:Key="BitmapConverter" />
+		<local:RingImageConverter x:Key="RingImageConverter" />
         <BooleanToVisibilityConverter x:Key="BoolVisibilityConverter" />
     </Window.Resources>
     <DockPanel>
@@ -86,8 +86,8 @@
         <Grid DataContext="{Binding Path=GameInfo, ElementName=window}" x:Name="grid" >
             <GroupBox Header="Secret For..." Height="79" HorizontalAlignment="Left" Margin="23,12,0,0" Name="groupBox1" VerticalAlignment="Top" Width="111">
                 <Grid>
-                    <Image Height="20" HorizontalAlignment="Left" Margin="6,6,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="20" Source="{Binding Nayru, Source={StaticResource CharacterImages}, Converter={StaticResource BitmapConverter}}" />
-                    <Image Height="20" HorizontalAlignment="Left" Margin="6,32,0,0" Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="20" Source="{Binding Din, Source={StaticResource CharacterImages}, Converter={StaticResource BitmapConverter}}" />
+                    <Image Height="20" HorizontalAlignment="Left" Margin="6,6,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="20" Source="Images\Characters\Nayru.gif" />
+                    <Image Height="20" HorizontalAlignment="Left" Margin="6,32,0,0" Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="20" Source="Images\Characters\Din.gif" />
                     <local:EnumRadioButton Content="Ages" EnumBinding="{Binding Game}" EnumValue="Ages" Height="16" HorizontalAlignment="Left" Margin="32,8,0,0" x:Name="rdoAges" VerticalAlignment="Top" IsChecked="True" />
                     <local:EnumRadioButton Content="Seasons" EnumBinding="{Binding Game}" EnumValue="Seasons" Height="16" HorizontalAlignment="Left" Margin="32,34,0,0" x:Name="rdoSeasons" VerticalAlignment="Top" />
                 </Grid>
@@ -122,7 +122,7 @@
                                                                     ConverterParameterBinding="{Binding EnumValue, Mode=OneWay}" />
                                 </CheckBox.IsChecked>
                             </CheckBox>
-                            <Image Width="18" Height="18" Source="{Binding Path=Image, Converter={StaticResource BitmapConverter}}" VerticalAlignment="Center" />
+							<Image Width="18" Height="18" Source="{Binding Path=EnumValue, Converter={StaticResource RingImageConverter}}" VerticalAlignment="Center" />
                             <TextBlock Text="{Binding Path=Name}" VerticalAlignment="Center" />
                             <StackPanel.ToolTip>
                                 <TextBlock Text="{Binding Path=Description}" />
@@ -138,13 +138,13 @@
                         <Setter Property="Image.Source" Value="{x:Null}" />
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding Animal}" Value="Ricky">
-                                <Setter Property="Image.Source" Value="{Binding Ricky, Source={StaticResource CharacterImages}, Converter={StaticResource BitmapConverter}}" />
+                                <Setter Property="Image.Source" Value="Images\Characters\Ricky.gif" />
                             </DataTrigger>
                             <DataTrigger Binding="{Binding Animal}" Value="Dimitri">
-                                <Setter Property="Image.Source" Value="{Binding Dimitri, Source={StaticResource CharacterImages}, Converter={StaticResource BitmapConverter}}" />
+								<Setter Property="Image.Source" Value="Images\Characters\Dimitri.gif" />
                             </DataTrigger>
                             <DataTrigger Binding="{Binding Animal}" Value="Moosh">
-                                <Setter Property="Image.Source" Value="{Binding Moosh, Source={StaticResource CharacterImages}, Converter={StaticResource BitmapConverter}}" />
+								<Setter Property="Image.Source" Value="Images\Characters\Moosh.gif" />
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>

@@ -116,6 +116,7 @@
     <Compile Include="MultiValueConverterAdapter.cs" />
     <Compile Include="RingDetails.cs" />
     <Compile Include="RingFlagValueConverter.cs" />
+    <Compile Include="RingImageConverter.cs" />
     <Compile Include="SecretByteToImageSource.cs" />
     <Compile Include="SecretDecoder.xaml.cs">
       <DependentUpon>SecretDecoder.xaml</DependentUpon>
@@ -199,77 +200,26 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Symbols\00.png" />
-    <Resource Include="Images\Symbols\01.png" />
-    <Resource Include="Images\Symbols\02.png" />
-    <Resource Include="Images\Symbols\03.png" />
-    <Resource Include="Images\Symbols\04.png" />
-    <Resource Include="Images\Symbols\05.png" />
-    <Resource Include="Images\Symbols\06.png" />
-    <Resource Include="Images\Symbols\07.png" />
-    <Resource Include="Images\Symbols\08.png" />
-    <Resource Include="Images\Symbols\09.png" />
-    <Resource Include="Images\Symbols\10.png" />
-    <Resource Include="Images\Symbols\11.png" />
-    <Resource Include="Images\Symbols\12.png" />
-    <Resource Include="Images\Symbols\13.png" />
-    <Resource Include="Images\Symbols\14.png" />
-    <Resource Include="Images\Symbols\15.png" />
-    <Resource Include="Images\Symbols\16.png" />
-    <Resource Include="Images\Symbols\17.png" />
-    <Resource Include="Images\Symbols\18.png" />
-    <Resource Include="Images\Symbols\19.png" />
-    <Resource Include="Images\Symbols\20.png" />
-    <Resource Include="Images\Symbols\21.png" />
-    <Resource Include="Images\Symbols\22.png" />
-    <Resource Include="Images\Symbols\23.png" />
-    <Resource Include="Images\Symbols\24.png" />
-    <Resource Include="Images\Symbols\25.png" />
-    <Resource Include="Images\Symbols\26.png" />
-    <Resource Include="Images\Symbols\27.png" />
-    <Resource Include="Images\Symbols\28.png" />
-    <Resource Include="Images\Symbols\29.png" />
-    <Resource Include="Images\Symbols\30.png" />
-    <Resource Include="Images\Symbols\31.png" />
-    <Resource Include="Images\Symbols\32.png" />
-    <Resource Include="Images\Symbols\33.png" />
-    <Resource Include="Images\Symbols\34.png" />
-    <Resource Include="Images\Symbols\35.png" />
-    <Resource Include="Images\Symbols\36.png" />
-    <Resource Include="Images\Symbols\37.png" />
-    <Resource Include="Images\Symbols\38.png" />
-    <Resource Include="Images\Symbols\39.png" />
-    <Resource Include="Images\Symbols\40.png" />
-    <Resource Include="Images\Symbols\41.png" />
-    <Resource Include="Images\Symbols\42.png" />
-    <Resource Include="Images\Symbols\43.png" />
-    <Resource Include="Images\Symbols\44.png" />
-    <Resource Include="Images\Symbols\45.png" />
-    <Resource Include="Images\Symbols\46.png" />
-    <Resource Include="Images\Symbols\47.png" />
-    <Resource Include="Images\Symbols\48.png" />
-    <Resource Include="Images\Symbols\49.png" />
-    <Resource Include="Images\Symbols\50.png" />
-    <Resource Include="Images\Symbols\51.png" />
-    <Resource Include="Images\Symbols\52.png" />
-    <Resource Include="Images\Symbols\53.png" />
-    <Resource Include="Images\Symbols\54.png" />
-    <Resource Include="Images\Symbols\55.png" />
-    <Resource Include="Images\Symbols\56.png" />
-    <Resource Include="Images\Symbols\57.png" />
-    <Resource Include="Images\Symbols\58.png" />
-    <Resource Include="Images\Symbols\59.png" />
-    <Resource Include="Images\Symbols\60.png" />
-    <Resource Include="Images\Symbols\61.png" />
-    <Resource Include="Images\Symbols\62.png" />
-    <Resource Include="Images\Symbols\63.png" />
+    <Resource Include="..\Images\Characters\*">
+      <Link>Images\Characters\%(FileName)%(Extension)</Link>
+    </Resource>
+    <Resource Include="..\Images\Rings\*">
+      <Link>Images\Rings\%(FileName)%(Extension)</Link>
+    </Resource>
+    <Resource Include="..\Images\Symbols\*">
+      <Link>Images\Symbols\%(FileName)%(Extension)</Link>
+    </Resource>
     <Resource Include="Images\exit.png" />
     <Resource Include="Images\filenew.png" />
     <Resource Include="Images\fileopen.png" />
     <Resource Include="Images\filesave.png" />
     <Resource Include="Images\filesaveas.png" />
-    <Resource Include="Images\Seed_Ages.gif" />
-    <Resource Include="Images\Seed_Seasons.gif" />
+    <Resource Include="..\Images\Seed_Ages.gif">
+      <Link>Images\Seed_Ages.gif</Link>
+    </Resource>
+    <Resource Include="..\Images\Seed_Seasons.gif">
+      <Link>Images\Seed_Seasons.gif</Link>
+    </Resource>
     <Content Include="libs\Xceed.Wpf.Toolkit.dll" />
   </ItemGroup>
   <ItemGroup>

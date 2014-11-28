@@ -7,20 +7,18 @@ using System.Text;
 
 namespace Zyrenth.OracleHack.Wpf
 {
-	[DebuggerDisplay("\\{ EnumValue = {EnumValue}, Name = {Name}, Description = {Description}, Image = {Image} \\}")]
+	[DebuggerDisplay("\\{ EnumValue = {EnumValue}, Name = {Name}, Description = {Description} \\}")]
 	public sealed class RingDetails : IEquatable<RingDetails>
 	{
 		private Rings _EnumValue;
 		private string _Name;
 		private string _Description;
-		private Bitmap _Image;
 
-		public RingDetails(Rings enumValue, string name, string description, Bitmap image)
+		public RingDetails(Rings enumValue, string name, string description)
 		{
 			_EnumValue = enumValue;
 			_Name = name;
 			_Description = description;
-			_Image = image;
 		}
 
 		public override bool Equals(object obj)
@@ -39,8 +37,6 @@ namespace Zyrenth.OracleHack.Wpf
 				return false;
 			if (!EqualityComparer<string>.Default.Equals(_Description, obj._Description))
 				return false;
-			if (!EqualityComparer<Bitmap>.Default.Equals(_Image, obj._Image))
-				return false;
 			return true;
 		}
 		public override int GetHashCode()
@@ -49,12 +45,11 @@ namespace Zyrenth.OracleHack.Wpf
 			hash ^= EqualityComparer<Rings>.Default.GetHashCode(_EnumValue);
 			hash ^= EqualityComparer<string>.Default.GetHashCode(_Name);
 			hash ^= EqualityComparer<string>.Default.GetHashCode(_Description);
-			hash ^= EqualityComparer<Bitmap>.Default.GetHashCode(_Image);
 			return hash;
 		}
 		public override string ToString()
 		{
-			return String.Format("{{ EnumValue = {0}, Name = {1}, Description = {2}, Image = {3} }}", _EnumValue, _Name, _Description, _Image);
+			return String.Format("{{ EnumValue = {0}, Name = {1}, Description = {2} }}", _EnumValue, _Name, _Description);
 		}
 
 		public Rings EnumValue
@@ -71,11 +66,6 @@ namespace Zyrenth.OracleHack.Wpf
 		{
 			get { return _Description; }
 			set { _Description = value; }
-		}
-		public Bitmap Image
-		{
-			get { return _Image; }
-			set { _Image = value; }
 		}
 	}
 }
