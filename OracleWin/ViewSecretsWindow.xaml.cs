@@ -35,6 +35,18 @@ namespace Zyrenth.OracleHack.Wpf
 		{
 			uxGameSecret.SetSecret(_info.CreateGameSecret());
 			uxRingSecret.SetSecret(_info.CreateRingSecret());
+
+			uxMemSecret01.SetSecret(_info.CreateMemorySecret(Memory.ClockShopKingZora, true));
+			uxMemSecret02.SetSecret(_info.CreateMemorySecret(Memory.GraveyardFairy, true));
+			uxMemSecret03.SetSecret(_info.CreateMemorySecret(Memory.SubrosianTroy, true));
+			uxMemSecret04.SetSecret(_info.CreateMemorySecret(Memory.DiverPlen, true));
+			uxMemSecret05.SetSecret(_info.CreateMemorySecret(Memory.SmithLibrary, true));
+			uxMemSecret06.SetSecret(_info.CreateMemorySecret(Memory.PirateTokay, true));
+			uxMemSecret07.SetSecret(_info.CreateMemorySecret(Memory.TempleMamamu, true));
+			uxMemSecret08.SetSecret(_info.CreateMemorySecret(Memory.DekuTingle, true));
+			uxMemSecret09.SetSecret(_info.CreateMemorySecret(Memory.BiggoronElder, true));
+			uxMemSecret10.SetSecret(_info.CreateMemorySecret(Memory.RuulSymmetry, true));
+
 			if (_info.Game == Game.Ages)
 			{
 				lblMem01.Text = "Clock Shop";
