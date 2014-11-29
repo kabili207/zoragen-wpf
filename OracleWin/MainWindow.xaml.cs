@@ -111,8 +111,7 @@ namespace Zyrenth.OracleHack.Wpf
 
 		private void miSecretsRing_Click(object sender, RoutedEventArgs e)
 		{
-			SecretDecoder decoder = new SecretDecoder(15);
-			decoder.Mode = SecretDecoder.SecretType.Ring;
+			SecretDecoder decoder = new SecretDecoder(SecretDecoder.SecretType.Ring);
 			decoder.Owner = this;
 			decoder.GameInfo = GameInfo;
 			decoder.DebugMode = DebugMode;
@@ -176,21 +175,29 @@ namespace Zyrenth.OracleHack.Wpf
 
 		private void GenerateSecrets()
 		{
+			if (GameInfo.GameID == 0)
+			{
+				Random rnd = new Random();
+				GameInfo.GameID = (short)rnd.Next(1, short.MaxValue);
+			}
 			var secretWindow = new ViewSecretsWindow(GameInfo);
 			secretWindow.Owner = this;
 			secretWindow.ShowDialog();
 		}
 
-		private void miHelpMask_Click(object sender, RoutedEventArgs e)
-		{
-			MaskCalculator window = new MaskCalculator();
-			window.Owner = this;
-			window.ShowDialog();
-		}
-
 		private void DebugCommand_Executed(object sender, ExecutedRoutedEventArgs e)
 		{
 			DebugMode = !DebugMode;
+		}
+
+		private void btnAllRings_Click(object sender, RoutedEventArgs e)
+		{
+			GameInfo.Rings = Rings.All;
+		}
+
+		private void btnNoRings_Click(object sender, RoutedEventArgs e)
+		{
+			GameInfo.Rings = Rings.None;
 		}
 	}
 }

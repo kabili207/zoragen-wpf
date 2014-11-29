@@ -110,9 +110,6 @@
     <Compile Include="ImageButton.xaml.cs">
       <DependentUpon>ImageButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MaskCalculator.xaml.cs">
-      <DependentUpon>MaskCalculator.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MultiValueConverterAdapter.cs" />
     <Compile Include="RingDetails.cs" />
     <Compile Include="RingFlagValueConverter.cs" />
@@ -147,10 +144,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MaskCalculator.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="SecretDecoder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

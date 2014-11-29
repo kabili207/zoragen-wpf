@@ -32,16 +32,29 @@ namespace Zyrenth.OracleHack.Wpf
 		public bool DebugMode { get; set; }
 
 		public SecretDecoder()
-			: this(20)
+			: this(SecretType.Game)
 		{
 
 		}
 
-		public SecretDecoder(int length)
+		public SecretDecoder(SecretType mode)
 		{
 			InitializeComponent();
-			data = new byte[length];
-			_secretLength = length;
+			switch (mode)
+			{
+				case SecretType.Game:
+					_secretLength = 20;
+					break;
+				case SecretType.Ring:
+					_secretLength = 15;
+					break;
+				case SecretType.Memory:
+					_secretLength = 5;
+					break;
+			}
+			data = new byte[_secretLength];
+			Mode = mode;
+			chkAppendRings.Visibility = Mode == SecretType.Ring ? Visibility.Visible : Visibility.Collapsed;
 		}
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -97,7 +110,7 @@ namespace Zyrenth.OracleHack.Wpf
 						GameInfo.LoadGameData(data);
 						break;
 					case SecretType.Ring:
-						GameInfo.LoadRings(data);
+						GameInfo.LoadRings(data, chkAppendRings.IsChecked == true);
 						break;
 					case SecretType.Memory:
 						GameInfo.ReadMemorySecret(data);
