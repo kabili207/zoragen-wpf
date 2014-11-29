@@ -103,21 +103,26 @@ namespace Zyrenth.OracleHack.Wpf
 			{
 				if (GameInfo == null)
 					GameInfo = new GameInfo();
-				
+				var trimmedData = data.Take(currentPic.Clamp(0, _secretLength)).ToArray();
+
 				switch (Mode)
 				{
 					case SecretType.Game:
-						GameInfo.LoadGameData(data);
+						GameInfo.LoadGameData(trimmedData);
 						break;
 					case SecretType.Ring:
-						GameInfo.LoadRings(data, chkAppendRings.IsChecked == true);
+						GameInfo.LoadRings(trimmedData, chkAppendRings.IsChecked == true);
 						break;
 					case SecretType.Memory:
-						GameInfo.ReadMemorySecret(data);
+						GameInfo.ReadMemorySecret(trimmedData);
 						break;
 				}
 
 				this.Close();
+			}
+			catch (InvalidSecretException ex)
+			{
+				MessageBox.Show(ex.Message, "Invalid Secret", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 			catch (Exception ex)
 			{
