@@ -13,7 +13,7 @@
 		<TextBlock Text="{Binding Path=FileVersion.LegalCopyright, FallbackValue='Copyright Not Found'}" HorizontalAlignment="Left" Margin="12,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 		<TextBlock HorizontalAlignment="Left" Margin="12,58,0,0" Name="textBlock1" Text="Version:" VerticalAlignment="Top" />
 		<TextBlock HorizontalAlignment="Left" Margin="12,80,0,0" Name="textBlock2" Text="Build Date:" VerticalAlignment="Top" />
-		<TextBlock HorizontalAlignment="Left" Margin="80,80,0,0" Name="textBlock3" Text="{Binding Path=BuildDate,StringFormat='MMM d, yyyy', FallbackValue='January 1, 2000'}" VerticalAlignment="Top" />
+		<TextBlock HorizontalAlignment="Left" Margin="80,80,0,0" Name="textBlock3" Text="{Binding Path=BuildDate,StringFormat='MMMM d, yyyy', FallbackValue='January 1, 2000'}" VerticalAlignment="Top" />
 		<TextBlock Margin="12,122,12,0" Name="textBlock4" Text="The Legend of Zelda is a trademark of Nintendo of America, Inc." VerticalAlignment="Top" TextWrapping="WrapWithOverflow" />
 		<TextBlock Margin="12,160,12,0" Name="textBlock5" Text="Images used in this program are copyright their respective owners." VerticalAlignment="Top" TextWrapping="Wrap" />
 		<TextBlock HorizontalAlignment="Left" Margin="12,101,0,0" TextWrapping="Wrap" Text="Homepage:" VerticalAlignment="Top"/>
