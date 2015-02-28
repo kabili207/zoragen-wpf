@@ -36,7 +36,7 @@ namespace Zyrenth.OracleHack.Wpf
 			uxGameSecret.SetSecret(_info.CreateGameSecret());
 			uxRingSecret.SetSecret(_info.CreateRingSecret());
 			
-			if (_info.Quest == Quest.LinkedGame)
+			if (_info.IsLinkedGame)
 			{
 				bool returnSecret = true;
 				uxMemSecret01.SetSecret(_info.CreateMemorySecret(Memory.ClockShopKingZora, returnSecret));
