@@ -81,6 +81,8 @@ namespace Zyrenth.OracleHack.Wpf
 					currentPic++;
 					uxSecretDisplay.SetSecret(data.Take(currentPic).ToArray());
 				}
+
+				txtSymbols.Text = GameInfo.ByteArrayToSecretString(data.Take(currentPic).ToArray());
 			}
 		}
 
@@ -88,6 +90,7 @@ namespace Zyrenth.OracleHack.Wpf
 		{
 			uxSecretDisplay.Reset();
 			currentPic = 0;
+			txtSymbols.Text = "";
 		}
 
 		private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -95,6 +98,7 @@ namespace Zyrenth.OracleHack.Wpf
 			if (currentPic > 0)
 				currentPic--;
 			uxSecretDisplay.SetSecret(data.Take(currentPic).ToArray());
+			txtSymbols.Text = GameInfo.ByteArrayToSecretString(data.Take(currentPic).ToArray());
 		}
 
 		private void btnDone_Click(object sender, RoutedEventArgs e)
@@ -128,6 +132,30 @@ namespace Zyrenth.OracleHack.Wpf
 			{
 				MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
+		}
+
+		private void txtSymbols_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			// Only run parse logic when visible
+			if (rdoEntryText.IsChecked == false)
+				return;
+
+			try
+			{
+				byte[] parsedSecret = GameInfo.SecretStringToByteArray(txtSymbols.Text);
+				byte[] trimmedData = parsedSecret.Take(parsedSecret.Length.Clamp(0, _secretLength)).ToArray();
+
+				uxSecretDisplay.SetSecret(trimmedData);
+
+				for (int i = 0; i < trimmedData.Length; ++i)
+				{
+					data[i] = trimmedData[i];
+				}
+
+				currentPic = (trimmedData.Length).Clamp(0, _secretLength);
+
+			}
+			catch (InvalidSecretException ex) { }
 		}
 
 	}
