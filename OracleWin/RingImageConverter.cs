@@ -15,7 +15,7 @@ namespace Zyrenth.OracleHack.Wpf
 		{
 			if (value is Rings)
 			{
-				Uri uri = new Uri(string.Format("pack://application:,,,/Images/Rings/{0}.gif", value));
+				Uri uri = new Uri(string.Format("Images/Rings/{0}.gif", value), UriKind.Relative);
 				return new BitmapImage(uri);
 			}
 			return DependencyProperty.UnsetValue;

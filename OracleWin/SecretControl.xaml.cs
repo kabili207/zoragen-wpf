@@ -60,7 +60,7 @@ namespace Zyrenth.OracleHack.Wpf
 
 					var logo = new BitmapImage();
 					logo.BeginInit();
-					logo.UriSource = new Uri(string.Format("pack://application:,,,/OracleWin;component/Images/Symbols/{0}.png", num));
+					logo.UriSource = new Uri(string.Format("Images/Symbols/{0}.png", num), UriKind.Relative);
 					logo.EndInit();
 					pics[i].Source = logo;
 				}

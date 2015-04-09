@@ -6,7 +6,7 @@
         xmlns:oracle="clr-namespace:Zyrenth.OracleHack;assembly=OracleHack"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
 		x:Name="window"
-        Title="Oracle of Secrets" Height="266" Width="446" Icon="/OracleWin;component/Farore.ico" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Oracle of Secrets" Height="266" Width="446" Icon="Farore.ico" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
 
 	<Window.CommandBindings>
 		<CommandBinding Command="local:MainWindow.DebugCommand" Executed="DebugCommand_Executed" />

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Zyrenth.OracleHack.Wpf.AboutWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="About" Height="239" Width="332" ResizeMode="NoResize" Icon="/OracleWin;component/Farore.ico" WindowStartupLocation="CenterOwner">
+        Title="About" Height="239" Width="332" ResizeMode="NoResize" Icon="Farore.ico" WindowStartupLocation="CenterOwner">
 	<Grid>
 		<StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
 			<Image Height="18" Margin="5"  VerticalAlignment="Center" Width="18" Source="Images/Seed_Ages.gif"/>
