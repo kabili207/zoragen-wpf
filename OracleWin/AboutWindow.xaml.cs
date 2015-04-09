@@ -31,22 +31,7 @@ namespace Zyrenth.OracleHack.Wpf
 			var callingAsm = Assembly.GetCallingAssembly();
 			var oHackAsm = typeof(GameInfo).Assembly;
 
-			this.DataContext = new AssemblyDetails(oHackAsm);
-		}
-
-		public class AssemblyDetails
-		{
-			public FileVersionInfo FileVersion { get; set; }
-			public DateTime BuildDate { get; set; }
-			public Assembly Assembly { get; set; }
-
-			public AssemblyDetails(Assembly asm)
-			{
-				Assembly = asm;
-				FileVersion = FileVersionInfo.GetVersionInfo(asm.Location);
-				BuildDate = asm.GetBuildDateTime();
-			}
-
+			this.DataContext = new AssemblyDetail(callingAsm);
 		}
 
 		private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
