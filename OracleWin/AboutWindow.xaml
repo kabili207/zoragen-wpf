@@ -1,26 +1,26 @@
 ﻿<Window x:Class="Zyrenth.OracleHack.Wpf.AboutWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="About" Height="239" Width="332" ResizeMode="NoResize" Icon="Farore.ico" WindowStartupLocation="CenterOwner">
+        Title="About" Height="239" Width="344" ResizeMode="NoResize" Icon="Farore.ico" WindowStartupLocation="CenterOwner">
 	<Grid>
 		<StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
 			<Image Height="18" Margin="5"  VerticalAlignment="Center" Width="18" Source="Images/Seed_Ages.gif"/>
 			<TextBlock x:Name="lblAssemblyName" Text="Zelda Oracle of Secrets" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="18"  />
 			<Image Height="18" Margin="5" VerticalAlignment="Center" Width="18" Source="Images/Seed_Seasons.gif"/>
-
 		</StackPanel>
-		<TextBlock Text="{Binding Path=FileVersion.ProductVersion, FallbackValue=0.0.0.0}" HorizontalAlignment="Left" Margin="80,58,0,0" VerticalAlignment="Top" />
 		<TextBlock Text="{Binding Path=FileVersion.LegalCopyright, FallbackValue='Copyright Not Found'}" HorizontalAlignment="Left" Margin="12,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 		<TextBlock HorizontalAlignment="Left" Margin="12,58,0,0" Name="textBlock1" Text="Version:" VerticalAlignment="Top" />
+		<TextBlock Text="{Binding Path=FileVersion.ProductVersion, FallbackValue=0.0.0.0}" HorizontalAlignment="Left" Margin="80,58,0,0" VerticalAlignment="Top" />
 		<TextBlock HorizontalAlignment="Left" Margin="12,80,0,0" Name="textBlock2" Text="Build Date:" VerticalAlignment="Top" />
 		<TextBlock HorizontalAlignment="Left" Margin="80,80,0,0" Name="textBlock3" Text="{Binding Path=BuildDate,StringFormat='MMMM d, yyyy', FallbackValue='January 1, 2000'}" VerticalAlignment="Top" />
-		<TextBlock Margin="12,122,12,0" Name="textBlock4" Text="The Legend of Zelda is a trademark of Nintendo of America, Inc." VerticalAlignment="Top" TextWrapping="WrapWithOverflow" />
-		<TextBlock Margin="12,160,12,0" Name="textBlock5" Text="Images used in this program are copyright their respective owners." VerticalAlignment="Top" TextWrapping="Wrap" />
 		<TextBlock HorizontalAlignment="Left" Margin="12,101,0,0" TextWrapping="Wrap" Text="Homepage:" VerticalAlignment="Top"/>
 		<Label HorizontalAlignment="Left" Margin="80,101,0,0" VerticalAlignment="Top" Padding="0">
-			<Hyperlink NavigateUri="https://github.com/kabili207/oracle-hack" RequestNavigate="Hyperlink_RequestNavigate" >
-				https://github.com/kabili207/oracle-hack
+			<Hyperlink NavigateUri="https://github.com/kabili207/oracle-hack-win" RequestNavigate="Hyperlink_RequestNavigate" >
+				https://github.com/kabili207/oracle-hack-win
 			</Hyperlink>
 		</Label>
+		<TextBlock Margin="12,122,12,0" Name="textBlock4" Text="The Legend of Zelda is a trademark of Nintendo of America, Inc." VerticalAlignment="Top" TextWrapping="WrapWithOverflow" />
+		<TextBlock Margin="12,160,12,0" Name="textBlock5" Text="Images used in this program are copyright their respective owners." VerticalAlignment="Top" TextWrapping="Wrap" />
+		
 	</Grid>
 </Window>
