@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Zyrenth.OracleHack.Wpf</RootNamespace>
-    <AssemblyName>OracleWin</AssemblyName>
+    <AssemblyName>OracleOfSecrets</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
