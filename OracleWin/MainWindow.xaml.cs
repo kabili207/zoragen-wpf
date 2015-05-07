@@ -167,7 +167,7 @@ namespace Zyrenth.OracleHack.Wpf
 			try
 			{
 				string sURL;
-				sURL = "https://api.github.com/repos/kabili207/oracle-hack-win/releases";
+				sURL = "https://api.github.com/repos/kabili207/oracle-of-secrets-win/releases";
 
 				WebRequest request = WebRequest.Create(sURL);
 				Extensions.SetAllowUnsafeHeaderParsing();

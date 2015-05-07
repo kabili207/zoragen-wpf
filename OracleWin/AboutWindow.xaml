@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Zyrenth.OracleHack.Wpf.AboutWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="About" Height="210" Width="344" ResizeMode="NoResize" Icon="Farore.ico" WindowStartupLocation="CenterOwner">
+        Title="About" Height="210" Width="367" ResizeMode="NoResize" Icon="Farore.ico" WindowStartupLocation="CenterOwner">
 	<Grid>
 		<StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
 			<Image Height="18" Margin="5"  VerticalAlignment="Center" Width="18" Source="Images/Seed_Ages.gif"/>
@@ -13,8 +13,8 @@
 		<TextBlock Text="{Binding Path=ProductVersion, FallbackValue=0.0.0.0}" HorizontalAlignment="Left" Margin="80,58,0,0" VerticalAlignment="Top" />
 		<TextBlock HorizontalAlignment="Left" Margin="12,79,0,0" TextWrapping="Wrap" Text="Homepage:" VerticalAlignment="Top"/>
 		<Label HorizontalAlignment="Left" Margin="80,79,0,0" VerticalAlignment="Top" Padding="0">
-			<Hyperlink NavigateUri="https://github.com/kabili207/oracle-hack-win" RequestNavigate="Hyperlink_RequestNavigate" >
-				https://github.com/kabili207/oracle-hack-win
+			<Hyperlink NavigateUri="https://github.com/kabili207/oracle-of-secrets-win" RequestNavigate="Hyperlink_RequestNavigate" >
+				https://github.com/kabili207/oracle-of-secrets-win
 			</Hyperlink>
 		</Label>
 		<TextBlock Margin="12,100,12,0" Name="textBlock4" Text="The Legend of Zelda is a trademark of Nintendo of America, Inc." VerticalAlignment="Top" TextWrapping="WrapWithOverflow" />
