@@ -12,6 +12,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
+using System.Net;
+using System.IO;
+using System.Web.Script.Serialization;
+using System.Reflection;
 
 namespace Zyrenth.OracleHack.Wpf
 {
@@ -20,6 +24,7 @@ namespace Zyrenth.OracleHack.Wpf
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+
 		public GameInfo GameInfo
 		{
 			get { return (GameInfo)GetValue(GameInfoProperty); }
@@ -32,6 +37,7 @@ namespace Zyrenth.OracleHack.Wpf
 
 		private static List<RingDetails> _availableRings;
 		private string CurrentFileName;
+		private bool _shown;
 
 		public static RoutedCommand DebugCommand = new RoutedCommand();
 
@@ -45,7 +51,7 @@ namespace Zyrenth.OracleHack.Wpf
 		// Using a DependencyProperty as the backing store for DebugMode.  This enables animation, styling, binding, etc...
 		public static readonly DependencyProperty DebugModeProperty =
 			DependencyProperty.Register("DebugMode", typeof(bool), typeof(MainWindow), new UIPropertyMetadata(false));
-		
+
 		static MainWindow()
 		{
 			Type ringType = typeof(Rings);
@@ -58,7 +64,7 @@ namespace Zyrenth.OracleHack.Wpf
 					.Cast<RingInfoAttribute>().SingleOrDefault();
 				if (attr == null)
 					return null;
-				return new RingDetails(x, attr.name, attr.description);
+				return new RingDetails(x, attr.Name, attr.Description);
 			}).Where(x => x != null).OrderBy(x => (ulong)x.EnumValue).ToList();
 
 		}
@@ -130,6 +136,66 @@ namespace Zyrenth.OracleHack.Wpf
 			about.ShowDialog();
 		}
 
+		private void miHelpUpdates_Click(object sender, RoutedEventArgs e)
+		{
+			CheckForUpdates(false);
+		}
+
+		private void CheckForUpdates(bool silentCheck)
+		{
+			List<GitHubRelease> releases = null;
+			try
+			{
+				string sURL;
+				sURL = "https://api.github.com/repos/kabili207/oracle-hack-win/releases";
+
+				WebRequest request = WebRequest.Create(sURL);
+				Extensions.SetAllowUnsafeHeaderParsing();
+
+				// GitHub requires a user agent
+				((HttpWebRequest)request).UserAgent = "OracleHack updater";
+
+
+				using (Stream objStream = request.GetResponse().GetResponseStream())
+				{
+					StreamReader objReader = new StreamReader(objStream);
+					string json = objReader.ReadToEnd();
+					var serializer = new JavaScriptSerializer();
+					serializer.RegisterConverters(new[] { new GitHubReleaseJsonConverter() });
+					releases = serializer.Deserialize<List<GitHubRelease>>(json);
+				}
+			}
+			catch (Exception ex)
+			{
+				if (!silentCheck)
+					MessageBox.Show("Unable to check for updates." + Environment.NewLine +
+						ex.Message, "Check for updates", MessageBoxButton.OK, MessageBoxImage.Error);
+			}
+
+			if (releases != null)
+			{
+				AssemblyDetail detail = new AssemblyDetail(Assembly.GetExecutingAssembly());
+				var releaseInfo = releases.Where(x => !x.IsPreRelease && !x.IsDraft &&
+					x.TagName.StartsWith("v")).Select(x =>
+				{
+					string versionString = x.TagName.TrimStart('v', 'V');
+					SemanticVersion version = SemanticVersion.Parse(versionString);
+					return new { Version = version, Release = x };
+				}).Where(x => x.Version > detail.ProductVersion).OrderByDescending(x => x.Version);
+
+				if (releaseInfo.Count() > 0)
+				{
+					var win = new UpdateWindow(releaseInfo.First().Release, detail.ProductVersion);
+					win.Owner = this;
+					win.ShowDialog();
+				}
+				else if (!silentCheck)
+				{
+					MessageBox.Show("There are no new updates available", "No updates");
+				}
+			}
+		}
+
 		private void btnGenerate_Click(object sender, RoutedEventArgs e)
 		{
 			GenerateSecrets();
@@ -165,7 +231,7 @@ namespace Zyrenth.OracleHack.Wpf
 					GameInfo = GameInfo.Load(openFile.FileName);
 					CurrentFileName = openFile.FileName;
 				}
-				catch(Exception ex)
+				catch (Exception ex)
 				{
 					MessageBox.Show("Unable to load game info." + Environment.NewLine + ex.Message, "Unable to load game info",
 						MessageBoxButton.OK, MessageBoxImage.Error);
@@ -199,5 +265,18 @@ namespace Zyrenth.OracleHack.Wpf
 		{
 			GameInfo.Rings = Rings.None;
 		}
+
+		protected override void OnContentRendered(EventArgs e)
+		{
+			base.OnContentRendered(e);
+
+			if (_shown)
+				return;
+
+			_shown = true;
+
+			CheckForUpdates(true);
+		}
+
 	}
 }

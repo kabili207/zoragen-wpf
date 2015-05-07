@@ -75,6 +75,9 @@
 				</MenuItem>
 			</MenuItem>
 			<MenuItem x:Name="miHelp" Header="_Help">
+				<MenuItem x:Name="miHelpUpdates" Header="Check for _Updates" Click="miHelpUpdates_Click">
+
+				</MenuItem>
 				<MenuItem x:Name="miHelpAbout" Header="_About" Click="miHelpAbout_Click">
 
 				</MenuItem>
