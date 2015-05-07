@@ -45,6 +45,11 @@ namespace Zyrenth.OracleHack.Wpf
 			};
 		}
 
+		public void SetSecret(Secret secret)
+		{
+			SetSecret(secret.ToBytes());
+		}
+
 		public void SetSecret(byte[] secret)
 		{
 			Reset();

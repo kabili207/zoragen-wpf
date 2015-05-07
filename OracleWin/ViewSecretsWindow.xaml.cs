@@ -33,22 +33,22 @@ namespace Zyrenth.OracleHack.Wpf
 
 		private void SetSecrets()
 		{
-			uxGameSecret.SetSecret(_info.CreateGameSecret());
-			uxRingSecret.SetSecret(_info.CreateRingSecret());
+			uxGameSecret.SetSecret(new GameSecret(_info));
+			uxRingSecret.SetSecret(new RingSecret(_info));
 			
 			if (_info.IsLinkedGame)
 			{
 				bool returnSecret = true;
-				uxMemSecret01.SetSecret(_info.CreateMemorySecret(Memory.ClockShopKingZora, returnSecret));
-				uxMemSecret02.SetSecret(_info.CreateMemorySecret(Memory.GraveyardFairy, returnSecret));
-				uxMemSecret03.SetSecret(_info.CreateMemorySecret(Memory.SubrosianTroy, returnSecret));
-				uxMemSecret04.SetSecret(_info.CreateMemorySecret(Memory.DiverPlen, returnSecret));
-				uxMemSecret05.SetSecret(_info.CreateMemorySecret(Memory.SmithLibrary, returnSecret));
-				uxMemSecret06.SetSecret(_info.CreateMemorySecret(Memory.PirateTokay, returnSecret));
-				uxMemSecret07.SetSecret(_info.CreateMemorySecret(Memory.TempleMamamu, returnSecret));
-				uxMemSecret08.SetSecret(_info.CreateMemorySecret(Memory.DekuTingle, returnSecret));
-				uxMemSecret09.SetSecret(_info.CreateMemorySecret(Memory.BiggoronElder, returnSecret));
-				uxMemSecret10.SetSecret(_info.CreateMemorySecret(Memory.RuulSymmetry, returnSecret));
+				uxMemSecret01.SetSecret(new MemorySecret(_info, Memory.ClockShopKingZora, returnSecret));
+				uxMemSecret02.SetSecret(new MemorySecret(_info, Memory.GraveyardFairy, returnSecret));
+				uxMemSecret03.SetSecret(new MemorySecret(_info, Memory.SubrosianTroy, returnSecret));
+				uxMemSecret04.SetSecret(new MemorySecret(_info, Memory.DiverPlen, returnSecret));
+				uxMemSecret05.SetSecret(new MemorySecret(_info, Memory.SmithLibrary, returnSecret));
+				uxMemSecret06.SetSecret(new MemorySecret(_info, Memory.PirateTokay, returnSecret));
+				uxMemSecret07.SetSecret(new MemorySecret(_info, Memory.TempleMamamu, returnSecret));
+				uxMemSecret08.SetSecret(new MemorySecret(_info, Memory.DekuTingle, returnSecret));
+				uxMemSecret09.SetSecret(new MemorySecret(_info, Memory.BiggoronElder, returnSecret));
+				uxMemSecret10.SetSecret(new MemorySecret(_info, Memory.RuulSymmetry, returnSecret));
 			}
 
 			if (_info.Game == Game.Ages)

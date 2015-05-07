@@ -192,7 +192,7 @@
     <Resource Include="Farore.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OracleHack\OracleHack.csproj">
+    <ProjectReference Include="..\OracleHack\src\OracleHack.csproj">
       <Project>{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}</Project>
       <Name>OracleHack</Name>
     </ProjectReference>

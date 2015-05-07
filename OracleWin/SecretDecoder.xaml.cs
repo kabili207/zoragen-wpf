@@ -82,7 +82,7 @@ namespace Zyrenth.OracleHack.Wpf
 					uxSecretDisplay.SetSecret(data.Take(currentPic).ToArray());
 				}
 
-				txtSymbols.Text = GameInfo.ByteArrayToSecretString(data.Take(currentPic).ToArray());
+				txtSymbols.Text = SecretParser.CreateString(data.Take(currentPic).ToArray());
 			}
 		}
 
@@ -98,7 +98,7 @@ namespace Zyrenth.OracleHack.Wpf
 			if (currentPic > 0)
 				currentPic--;
 			uxSecretDisplay.SetSecret(data.Take(currentPic).ToArray());
-			txtSymbols.Text = GameInfo.ByteArrayToSecretString(data.Take(currentPic).ToArray());
+			txtSymbols.Text = SecretParser.CreateString(data.Take(currentPic).ToArray());
 		}
 
 		private void btnDone_Click(object sender, RoutedEventArgs e)
@@ -112,13 +112,19 @@ namespace Zyrenth.OracleHack.Wpf
 				switch (Mode)
 				{
 					case SecretType.Game:
-						GameInfo.LoadGameData(trimmedData);
+						GameSecret gs = new GameSecret();
+						gs.Load(trimmedData);
+						gs.UpdateGameInfo(GameInfo);
 						break;
 					case SecretType.Ring:
-						GameInfo.LoadRings(trimmedData, chkAppendRings.IsChecked == true);
+						RingSecret rs = new RingSecret();
+						rs.Load(trimmedData);
+						rs.UpdateGameInfo(GameInfo, chkAppendRings.IsChecked == true);
 						break;
 					case SecretType.Memory:
-						GameInfo.ReadMemorySecret(trimmedData);
+						MemorySecret ms = new MemorySecret();
+						ms.Load(trimmedData);
+						// Now what?
 						break;
 				}
 
@@ -142,7 +148,7 @@ namespace Zyrenth.OracleHack.Wpf
 
 			try
 			{
-				byte[] parsedSecret = GameInfo.SecretStringToByteArray(txtSymbols.Text);
+				byte[] parsedSecret = SecretParser.ParseSecret(txtSymbols.Text);
 				byte[] trimmedData = parsedSecret.Take(parsedSecret.Length.Clamp(0, _secretLength)).ToArray();
 
 				uxSecretDisplay.SetSecret(trimmedData);
@@ -155,7 +161,7 @@ namespace Zyrenth.OracleHack.Wpf
 				currentPic = (trimmedData.Length).Clamp(0, _secretLength);
 
 			}
-			catch (InvalidSecretException ex) { }
+			catch (InvalidSecretException) { }
 		}
 
 	}
