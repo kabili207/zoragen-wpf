@@ -60,18 +60,6 @@
     <ApplicationIcon>Farore.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>B939026D018B78D06A459E42D2C485166EA4CC1B</ManifestCertificateThumbprint>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestKeyFile>OracleWin_TemporaryKey.pfx</ManifestKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignManifests>false</SignManifests>
-  </PropertyGroup>
-  <PropertyGroup>
     <StartupObject>Zyrenth.OracleHack.Wpf.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
@@ -197,7 +185,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="OracleWin_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -261,7 +248,7 @@
     <FileAssociation Include=".zora">
       <Visible>False</Visible>
       <Description>Zelda Oracle Game Info</Description>
-      <Progid>OracleHack</Progid>
+      <Progid>Oracle of Secrets</Progid>
       <DefaultIcon>Farore.ico</DefaultIcon>
     </FileAssociation>
   </ItemGroup>

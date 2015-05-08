@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleHack", "OracleHack\src\OracleHack.csproj", "{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OracleWin", "OracleWin\OracleWin.csproj", "{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}"
@@ -29,6 +31,9 @@ Global
 		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Release|Mixed Platforms.Build.0 = Release|x86
 		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Release|x86.ActiveCfg = Release|x86
 		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
@@ -69,8 +74,5 @@ Global
 		$0.StandardHeader = $4
 		$4.Text = 
 		$4.IncludeInNewFiles = True
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
