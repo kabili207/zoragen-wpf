@@ -1,0 +1,10 @@
+version: 2.1.{build}
+configuration: Release
+install:
+- git submodule update --init --recursive
+build:
+  project: OracleHack.sln
+  verbosity: minimal
+artifacts:
+- path: OracleWin\bin\$(configuration)\OracleOfSecrets.exe
+  name: OracleOfSecrets

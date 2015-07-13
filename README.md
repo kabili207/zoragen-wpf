@@ -1,4 +1,4 @@
-# Oracle of Secrets Password Generator
+# Oracle of Secrets Password Generator [![Build status](https://ci.appveyor.com/api/projects/status/dlycw9cfqv194k6e/branch/master?svg=true)](https://ci.appveyor.com/project/kabili207/oracle-of-secrets-win/branch/master)
 
 A generator and decoder for the password system used in the Legend of Zelda Oracle of Ages and Oracle of Seasons games.
 Built using the [OracleHack](https://github.com/kabili207/oracle-hack) library.
