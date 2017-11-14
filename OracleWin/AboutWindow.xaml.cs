@@ -32,6 +32,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Reflection;
 using System.Diagnostics;
+using Zyrenth.Zora;
 
 namespace Zyrenth.OracleHack.Wpf
 {

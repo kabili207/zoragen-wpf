@@ -26,6 +26,7 @@ using System.Windows.Media.Imaging;
 using System.Globalization;
 using System.Windows.Data;
 using System.Windows;
+using Zyrenth.Zora;
 
 namespace Zyrenth.OracleHack.Wpf
 {

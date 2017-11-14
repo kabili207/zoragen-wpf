@@ -22,23 +22,26 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Web.Script.Serialization;
+using Zyrenth.Zora;
 
 namespace Zyrenth.OracleHack.Wpf
 {
-	class GitHubReleaseJsonConverter : JavaScriptConverter
+	class GitHubReleaseJsonConverter
 	{
-		public override IEnumerable<Type> SupportedTypes
+		public IEnumerable<Type> SupportedTypes
 		{
 			get { return new[] { typeof(GitHubRelease) }; }
 		}
 
-		public override object Deserialize(IDictionary<string, object> dictionary, Type type, JavaScriptSerializer serializer)
+		public IEnumerable<GitHubRelease> Deserialize(List<object> list)
+		{
+			return list.OfType<IDictionary<string, object>>().Select(x => Deserialize(x));
+		}
+
+		public GitHubRelease Deserialize(IDictionary<string, object> dictionary)
 		{
 			if (dictionary == null)
 				throw new ArgumentNullException("dictionary");
-			if (type != typeof(GitHubRelease))
-				return null;
 
 			GitHubRelease release = new GitHubRelease();
 			release.Name = dictionary.ReadValue<string>("name");
@@ -55,7 +58,7 @@ namespace Zyrenth.OracleHack.Wpf
 			return release;
 		}
 
-		public override IDictionary<string, object> Serialize(object obj, JavaScriptSerializer serializer)
+		public IDictionary<string, object> Serialize(GitHubRelease obj)
 		{
 			throw new NotImplementedException();
 		}

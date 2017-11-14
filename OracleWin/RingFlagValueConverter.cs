@@ -25,6 +25,7 @@ using System.Text;
 using System.Windows.Data;
 using System.Globalization;
 using System.Windows.Markup;
+using Zyrenth.Zora;
 
 namespace Zyrenth.OracleHack.Wpf
 {

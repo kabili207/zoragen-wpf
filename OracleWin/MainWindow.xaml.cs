@@ -34,8 +34,8 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.Net;
 using System.IO;
-using System.Web.Script.Serialization;
 using System.Reflection;
+using Zyrenth.Zora;
 
 namespace Zyrenth.OracleHack.Wpf
 {
@@ -180,9 +180,9 @@ namespace Zyrenth.OracleHack.Wpf
 				{
 					StreamReader objReader = new StreamReader(objStream);
 					string json = objReader.ReadToEnd();
-					var serializer = new JavaScriptSerializer();
-					serializer.RegisterConverters(new[] { new GitHubReleaseJsonConverter() });
-					releases = serializer.Deserialize<List<GitHubRelease>>(json);
+					var dict = (SimpleJson.JsonArray)SimpleJson.SimpleJson.DeserializeObject(json);
+					var converter = new GitHubReleaseJsonConverter();
+					releases = converter.Deserialize(dict).ToList();
 				}
 			}
 			catch (Exception ex)
