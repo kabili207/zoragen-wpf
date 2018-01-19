@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoraSharp", "OracleHack\src\ZoraSharp.csproj", "{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoraGenWpf", "ZoraGenWpf\ZoraGenWpf.csproj", "{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Debug|x86.Build.0 = Debug|Any CPU
+		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Release|x86.ActiveCfg = Release|Any CPU
+		{E40D4A82-F5F3-4712-A8E2-AD3C77B1E5A8}.Release|x86.Build.0 = Release|Any CPU
+		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Debug|x86.ActiveCfg = Debug|x86
+		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Debug|x86.Build.0 = Debug|x86
+		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Release|Mixed Platforms.Build.0 = Release|x86
+		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Release|x86.ActiveCfg = Release|x86
+		{ED9EED55-66D8-4B76-888D-A4FF3A3670C0}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.FileWidth = 120
+		$1.TabsToSpaces = False
+		$1.inheritsSet = VisualStudio
+		$1.inheritsScope = text/plain
+		$1.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $2
+		$2.IndentSwitchBody = True
+		$2.AnonymousMethodBraceStyle = NextLine
+		$2.PropertyBraceStyle = NextLine
+		$2.PropertyGetBraceStyle = NextLine
+		$2.PropertySetBraceStyle = NextLine
+		$2.EventBraceStyle = NextLine
+		$2.EventAddBraceStyle = NextLine
+		$2.EventRemoveBraceStyle = NextLine
+		$2.StatementBraceStyle = NextLine
+		$2.ElseNewLinePlacement = NewLine
+		$2.ElseIfNewLinePlacement = SameLine
+		$2.CatchNewLinePlacement = NewLine
+		$2.FinallyNewLinePlacement = NewLine
+		$2.BeforeMethodDeclarationParentheses = False
+		$2.BeforeMethodCallParentheses = False
+		$2.BeforeConstructorDeclarationParentheses = False
+		$2.BeforeIndexerDeclarationBracket = False
+		$2.BeforeDelegateDeclarationParentheses = False
+		$2.AfterDelegateDeclarationParameterComma = True
+		$2.NewParentheses = False
+		$2.SpacesBeforeBrackets = False
+		$2.inheritsSet = Mono
+		$2.inheritsScope = text/x-csharp
+		$2.scope = text/x-csharp
+		$0.DotNetNamingPolicy = $3
+		$3.DirectoryNamespaceAssociation = Hierarchical
+		$3.ResourceNamePolicy = MSBuild
+		$0.StandardHeader = $4
+		$4.Text = 
+		$4.IncludeInNewFiles = True
+	EndGlobalSection
+EndGlobal

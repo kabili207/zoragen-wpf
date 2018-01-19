@@ -6,5 +6,5 @@ build:
   project: OracleHack.sln
   verbosity: minimal
 artifacts:
-- path: OracleWin\bin\$(configuration)\OracleOfSecrets.exe
-  name: OracleOfSecrets
+- path: ZoraGenWpf\bin\$(configuration)\ZoraGen.exe
+  name: ZoraGen
