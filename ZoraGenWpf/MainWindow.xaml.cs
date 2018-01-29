@@ -1,7 +1,7 @@
 ﻿/*
  * Copyright © 2013-2018, Amy Nagle.
  * All rights reserved.
- * 
+ *
  * This file is part of ZoraGen WPF.
  *
  * ZoraGen WPF is free software: you can redistribute it and/or modify
@@ -13,7 +13,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with ZoraGen WPF.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -127,7 +127,7 @@ namespace Zyrenth.ZoraGen.Wpf
 
 		private void miSecretsGame_Click(object sender, RoutedEventArgs e)
 		{
-			SecretDecoder decoder = new SecretDecoder();
+			SecretDecoder decoder = new SecretDecoder(GameInfo.Region);
 			decoder.Mode = SecretDecoder.SecretType.Game;
 			decoder.Owner = this;
 			decoder.GameInfo = GameInfo;
@@ -137,7 +137,7 @@ namespace Zyrenth.ZoraGen.Wpf
 
 		private void miSecretsRing_Click(object sender, RoutedEventArgs e)
 		{
-			SecretDecoder decoder = new SecretDecoder(SecretDecoder.SecretType.Ring);
+			SecretDecoder decoder = new SecretDecoder(SecretDecoder.SecretType.Ring, GameInfo.Region);
 			decoder.Owner = this;
 			decoder.GameInfo = GameInfo;
 			decoder.DebugMode = DebugMode;

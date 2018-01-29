@@ -1,7 +1,7 @@
 ﻿/*
  * Copyright © 2013-2018, Amy Nagle.
  * All rights reserved.
- * 
+ *
  * This file is part of ZoraGen WPF.
  *
  * ZoraGen WPF is free software: you can redistribute it and/or modify
@@ -13,7 +13,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with ZoraGen WPF.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -43,6 +43,7 @@ namespace Zyrenth.ZoraGen.Wpf
 		private byte[] data;
 		private int currentPic;
 		private int _secretLength;
+		private GameRegion _region;
 
 		public enum SecretType { Game, Ring, Memory }
 
@@ -53,14 +54,20 @@ namespace Zyrenth.ZoraGen.Wpf
 		public bool DebugMode { get; set; }
 
 		public SecretDecoder()
-			: this(SecretType.Game)
+			: this(SecretType.Game, GameRegion.US)
+		{
+
+		}
+		public SecretDecoder(GameRegion region)
+			: this(SecretType.Game, region)
 		{
 
 		}
 
-		public SecretDecoder(SecretType mode)
+		public SecretDecoder(SecretType mode, GameRegion region)
 		{
 			InitializeComponent();
+			_region = region;
 			switch (mode)
 			{
 				case SecretType.Game:
@@ -103,7 +110,7 @@ namespace Zyrenth.ZoraGen.Wpf
 					uxSecretDisplay.SetSecret(data.Take(currentPic).ToArray());
 				}
 
-				txtSymbols.Text = SecretParser.CreateString(data.Take(currentPic).ToArray());
+				txtSymbols.Text = SecretParser.CreateString(data.Take(currentPic).ToArray(), _region);
 			}
 		}
 
@@ -119,7 +126,7 @@ namespace Zyrenth.ZoraGen.Wpf
 			if (currentPic > 0)
 				currentPic--;
 			uxSecretDisplay.SetSecret(data.Take(currentPic).ToArray());
-			txtSymbols.Text = SecretParser.CreateString(data.Take(currentPic).ToArray());
+			txtSymbols.Text = SecretParser.CreateString(data.Take(currentPic).ToArray(), _region);
 		}
 
 		private void btnDone_Click(object sender, RoutedEventArgs e)
@@ -133,17 +140,17 @@ namespace Zyrenth.ZoraGen.Wpf
 				switch (Mode)
 				{
 					case SecretType.Game:
-						GameSecret gs = new GameSecret();
+						GameSecret gs = new GameSecret(_region);
 						gs.Load(trimmedData);
 						gs.UpdateGameInfo(GameInfo);
 						break;
 					case SecretType.Ring:
-						RingSecret rs = new RingSecret();
+						RingSecret rs = new RingSecret(_region);
 						rs.Load(trimmedData);
 						rs.UpdateGameInfo(GameInfo, chkAppendRings.IsChecked == true);
 						break;
 					case SecretType.Memory:
-						MemorySecret ms = new MemorySecret();
+						MemorySecret ms = new MemorySecret(_region);
 						ms.Load(trimmedData);
 						// Now what?
 						break;
@@ -169,7 +176,7 @@ namespace Zyrenth.ZoraGen.Wpf
 
 			try
 			{
-				byte[] parsedSecret = SecretParser.ParseSecret(txtSymbols.Text);
+				byte[] parsedSecret = SecretParser.ParseSecret(txtSymbols.Text, _region);
 				byte[] trimmedData = parsedSecret.Take(parsedSecret.Length.Clamp(0, _secretLength)).ToArray();
 
 				uxSecretDisplay.SetSecret(trimmedData);

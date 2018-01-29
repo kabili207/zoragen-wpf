@@ -3,7 +3,7 @@ configuration: Release
 install:
 - git submodule update --init --recursive
 build:
-  project: OracleHack.sln
+  project: ZoraGenWpf.sln
   verbosity: minimal
 artifacts:
 - path: ZoraGenWpf\bin\$(configuration)\ZoraGen.exe

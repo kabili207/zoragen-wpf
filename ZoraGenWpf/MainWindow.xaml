@@ -5,7 +5,7 @@
         xmlns:oracle="clr-namespace:Zyrenth.Zora;assembly=ZoraSharp"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
 		x:Name="window"
-        Title="Oracle of Secrets" Height="266" Width="446" Icon="Farore.ico" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="ZoraGen - Zelda Oracles Password Generator" Height="296.458" Width="446" Icon="Farore.ico" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
 
 	<Window.CommandBindings>
 		<CommandBinding Command="local:MainWindow.DebugCommand" Executed="DebugCommand_Executed" />
@@ -19,12 +19,6 @@
 		<ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type sys:Enum}" x:Key="odpAnimal">
 			<ObjectDataProvider.MethodParameters>
 				<x:Type TypeName="oracle:Animal"/>
-			</ObjectDataProvider.MethodParameters>
-		</ObjectDataProvider>
-
-		<ObjectDataProvider MethodName="GetValues" ObjectType="{x:Type sys:Enum}" x:Key="odpBehavior">
-			<ObjectDataProvider.MethodParameters>
-				<x:Type TypeName="oracle:ChildBehavior"/>
 			</ObjectDataProvider.MethodParameters>
 		</ObjectDataProvider>
 
@@ -83,7 +77,7 @@
 			</MenuItem>
 		</Menu>
 		<Grid DataContext="{Binding Path=GameInfo, ElementName=window}" x:Name="grid" >
-			<GroupBox Header="Secret For..." Height="79" HorizontalAlignment="Left" Margin="23,12,0,0" Name="groupBox1" VerticalAlignment="Top" Width="111">
+			<GroupBox Header="Secret For..." Height="79" HorizontalAlignment="Left" Margin="23,52,0,0" Name="groupBox1" VerticalAlignment="Top" Width="111">
 				<Grid>
 					<Image Height="20" HorizontalAlignment="Left" Margin="6,6,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="20" Source="Images\Characters\Nayru.gif" />
 					<Image Height="20" HorizontalAlignment="Left" Margin="6,32,0,0" Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="20" Source="Images\Characters\Din.gif" />
@@ -91,23 +85,23 @@
 					<local:EnumRadioButton Content="Seasons" EnumBinding="{Binding Game}" EnumValue="Seasons" Height="16" HorizontalAlignment="Left" Margin="32,34,0,0" x:Name="rdoSeasons" VerticalAlignment="Top" />
 				</Grid>
 			</GroupBox>
-			<GroupBox Header="Game Type" Height="79" HorizontalAlignment="Left" Margin="140,12,0,0" Name="groupBox2" VerticalAlignment="Top" Width="111">
+			<GroupBox Header="Game Type" Height="79" HorizontalAlignment="Left" Margin="140,52,0,0" Name="groupBox2" VerticalAlignment="Top" Width="111">
 				<Grid>
 					<CheckBox Content="Linked Game" IsChecked="{Binding IsLinkedGame}" Height="16" HorizontalAlignment="Left" Margin="6,8,0,0" x:Name="chkLinked" VerticalAlignment="Top" />
 					<CheckBox Content="Hero's Quest" IsChecked="{Binding IsHeroQuest}" Height="16" HorizontalAlignment="Left" Margin="6,34,0,0" x:Name="chkHero" VerticalAlignment="Top" />
 				</Grid>
 			</GroupBox>
-			<TextBox Text="{Binding Hero}" Height="23" HorizontalAlignment="Left" Margin="52,111,0,0" Name="textBox1" VerticalAlignment="Top" Width="74" MaxLength="5" />
-			<TextBox Text="{Binding Child}" Height="23" HorizontalAlignment="Left" Margin="184,111,0,0" Name="textBox3" VerticalAlignment="Top" Width="74" MaxLength="5" />
-			<local:ShortUpDown Value="{Binding GameID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="23" HorizontalAlignment="Left" Margin="52,140,0,0" x:Name="textBox2" VerticalAlignment="Top" Width="74" Minimum="0" />
-			<ComboBox SelectedItem="{Binding Behavior}" ItemsSource="{Binding Source={StaticResource odpBehavior}}" Height="23" HorizontalAlignment="Left" Margin="184,140,0,0" Name="comboBox2" VerticalAlignment="Top" Width="74" />
-			<ComboBox SelectedItem="{Binding Animal}" ItemsSource="{Binding Source={StaticResource odpAnimal}}" Height="23" HorizontalAlignment="Left" Margin="52,169,0,0" Name="comboBox1" VerticalAlignment="Top" Width="74" />
-			<TextBlock HorizontalAlignment="Left" Margin="12,114,0,0" Name="textBlock1" Text="Hero" VerticalAlignment="Top" />
-			<TextBlock HorizontalAlignment="Left" Margin="12,144,0,0" Name="textBlock2" Text="ID" VerticalAlignment="Top" />
-			<TextBlock HorizontalAlignment="Left" Margin="12,172,0,0" Name="textBlock3" Text="Friend" VerticalAlignment="Top" />
-			<TextBlock HorizontalAlignment="Left" Margin="132,114,0,0" Name="textBlock4" Text="Child" VerticalAlignment="Top" />
-			<TextBlock HorizontalAlignment="Left" Margin="132,144,0,0" Name="textBlock5" Text="Behavior" VerticalAlignment="Top" />
-			<ListBox x:Name="lstRings" Margin="266,29,6,15" ScrollViewer.CanContentScroll="True" >
+			<TextBox Text="{Binding Hero}" Height="23" HorizontalAlignment="Left" Margin="52,136,0,0" Name="textBox1" VerticalAlignment="Top" Width="74" MaxLength="5" />
+			<TextBox Text="{Binding Child}" Height="23" HorizontalAlignment="Left" Margin="184,136,0,0" Name="textBox3" VerticalAlignment="Top" Width="74" MaxLength="5" />
+			<local:ShortUpDown Value="{Binding GameID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="23" HorizontalAlignment="Left" Margin="52,165,0,0" x:Name="textBox2" VerticalAlignment="Top" Width="74" Minimum="0" />
+			<local:ShortUpDown Value="{Binding Behavior, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="23" HorizontalAlignment="Left" Margin="184,165,0,0" x:Name="comboBox2" VerticalAlignment="Top" Width="74" />
+			<ComboBox SelectedItem="{Binding Animal}" ItemsSource="{Binding Source={StaticResource odpAnimal}}" Height="23" HorizontalAlignment="Left" Margin="52,194,0,0" Name="comboBox1" VerticalAlignment="Top" Width="74" />
+			<TextBlock HorizontalAlignment="Left" Margin="12,139,0,0" Name="textBlock1" Text="Hero" VerticalAlignment="Top" />
+			<TextBlock HorizontalAlignment="Left" Margin="12,169,0,0" Name="textBlock2" Text="ID" VerticalAlignment="Top" />
+			<TextBlock HorizontalAlignment="Left" Margin="12,197,0,0" Name="textBlock3" Text="Friend" VerticalAlignment="Top" />
+			<TextBlock HorizontalAlignment="Left" Margin="132,139,0,0" Name="textBlock4" Text="Child" VerticalAlignment="Top" />
+			<TextBlock HorizontalAlignment="Left" Margin="132,168,0,0" Name="textBlock5" Text="Behavior" VerticalAlignment="Top" />
+			<ListBox x:Name="lstRings" Margin="266,29,6,31" ScrollViewer.CanContentScroll="True" >
 				<ListBox.Resources>
 					<local:RingFlagValueConverter x:Key="RingsConverter" />
 				</ListBox.Resources>
@@ -131,7 +125,7 @@
 				</ListBox.ItemTemplate>
 			</ListBox>
 			<TextBlock HorizontalAlignment="Left" Margin="266,12,0,0" Name="textBlock6" Text="Rings" VerticalAlignment="Top" />
-			<Image Height="28" HorizontalAlignment="Left" Margin="130,164,0,0" Name="imgAnimal" Stretch="Fill" VerticalAlignment="Top" Width="32">
+			<Image Height="28" HorizontalAlignment="Left" Margin="131,189,0,0" Name="imgAnimal" Stretch="Fill" VerticalAlignment="Top" Width="32">
 				<Image.Style>
 					<Style>
 						<Setter Property="Image.Source" Value="{x:Null}" />
@@ -153,6 +147,13 @@
 			<Button x:Name="btnNoRings" Content="None" HorizontalAlignment="Right" Margin="0,4,6,0" VerticalAlignment="Top" Width="46" Click="btnNoRings_Click"/>
 			<Image Height="18" HorizontalAlignment="Left" Margin="0,0,0,0" Stretch="Fill" VerticalAlignment="Bottom" Width="18" Source="Images\Characters\SpinyBeetle.png"
 				   Visibility="{Binding DebugMode, ElementName=window, Converter={StaticResource BoolVisibilityConverter}}"/>
+			<GroupBox Header="Region" HorizontalAlignment="Left" Margin="23,5,0,0" VerticalAlignment="Top" Width="228" Height="47">
+				<Grid>
+					<local:EnumRadioButton x:Name="rdoRegionUS" EnumBinding="{Binding Region}" EnumValue="US" Content="US/PAL" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top"/>
+					<local:EnumRadioButton x:Name="rdoRegionJapan" EnumBinding="{Binding Region}" EnumValue="JP" Content="Japan" IsEnabled="False" HorizontalAlignment="Left" Margin="97,7,0,0" VerticalAlignment="Top"/>
+				</Grid>
+			</GroupBox>
+			<CheckBox x:Name="chkFreeRing" Content="Free Ring Given" IsChecked="{Binding WasGivenFreeRing}" HorizontalAlignment="Left" Margin="266,0,0,10" VerticalAlignment="Bottom"/>
 		</Grid>
 	</DockPanel>
 </Window>

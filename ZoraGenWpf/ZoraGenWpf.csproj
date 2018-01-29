@@ -246,7 +246,7 @@
     </FileAssociation>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OracleHack\src\ZoraSharp.csproj">
+    <ProjectReference Include="..\ZoraSharp\src\ZoraSharp.csproj">
       <Project>{e40d4a82-f5f3-4712-a8e2-ad3c77b1e5a8}</Project>
       <Name>ZoraSharp</Name>
     </ProjectReference>

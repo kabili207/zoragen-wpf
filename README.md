@@ -1,7 +1,7 @@
-# Oracle of Secrets Password Generator [![Build status](https://ci.appveyor.com/api/projects/status/dlycw9cfqv194k6e/branch/master?svg=true)](https://ci.appveyor.com/project/kabili207/oracle-of-secrets-win/branch/master)
+# ZoraGen WPF [![Build status](https://ci.appveyor.com/api/projects/status/dlycw9cfqv194k6e/branch/master?svg=true)](https://ci.appveyor.com/project/kabili207/zoragen-wpf/branch/master)
 
 A generator and decoder for the password system used in the Legend of Zelda Oracle of Ages and Oracle of Seasons games.
-Built using the [OracleHack](https://github.com/kabili207/oracle-hack) library.
+Built using the [ZoraSharp](https://github.com/kabili207/zora-sharp) library.
 
 ### Features
  * Decodes game and ring secrets
@@ -20,5 +20,5 @@ Built using the [OracleHack](https://github.com/kabili207/oracle-hack) library.
 Oracle of Secrets is licensed under the GNU General Public License version 3.
 
 Oracle of Secrets makes use of the following libraries:
- * [OracleHack](https://github.com/kabili207/oracle-hack), licensed under the GNU Lesser General Public License version 3
+ * [ZoraSharp](https://github.com/kabili207/zora-sharp), licensed under the GNU Lesser General Public License version 3
  * [SemVer](https://github.com/maxhauser/semver), licensed under the MIT License
