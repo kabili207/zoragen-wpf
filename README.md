@@ -7,6 +7,10 @@ Built using the [ZoraSharp](https://github.com/kabili207/zora-sharp) library.
  * Decodes game and ring secrets
  * Generates game, ring, and memory secrets
  * Allows the user to save the game information for later use
+ 
+### Download
+ * [Stable Release](https://github.com/kabili207/zoragen-wpf/releases/latest)
+ * [Development Build](https://ci.appveyor.com/project/kabili207/zoragen-wpf/branch/master/artifacts)
 
 ### TODO
  * Include a debugging screen to get raw information about secrets
