@@ -40,6 +40,9 @@ namespace Zyrenth.ZoraGen.Wpf
 	/// </summary>
 	public partial class SecretControl : UserControl
 	{
+		public static readonly RoutedCommand CopySecretCommand = new RoutedCommand();
+
+		private GameRegion _region;
 
 		/// <summary>
 		/// Gets or sets a value indicating if this is a large (>5) secret
@@ -53,8 +56,9 @@ namespace Zyrenth.ZoraGen.Wpf
 		// Using a DependencyProperty as the backing store for LargeDisplay.  This enables animation, styling, binding, etc...
 		public static readonly DependencyProperty LargeDisplayProperty =
 			DependencyProperty.Register("LargeDisplay", typeof(bool), typeof(SecretControl), new PropertyMetadata(true));
-		private Image[] pics;
 
+		private Image[] pics;
+		private byte[] _secret;
 
 		public SecretControl()
 		{
@@ -74,6 +78,8 @@ namespace Zyrenth.ZoraGen.Wpf
 		public void SetSecret(byte[] secret, GameRegion region)
 		{
 			Reset();
+			_region = region;
+			_secret = secret;
 			for (int i = 0; i < secret.Length && i < pics.Length; i++)
 			{
 				if (secret[i] > 63)
@@ -86,7 +92,7 @@ namespace Zyrenth.ZoraGen.Wpf
 
 					var logo = new BitmapImage();
 					logo.BeginInit();
-					logo.UriSource = new Uri(string.Format("Images/Symbols_{1}/{0}.png", num, region), UriKind.Relative);
+					logo.UriSource = new Uri(string.Format("Images/Symbols_{1}/{0}.png", num, _region), UriKind.Relative);
 					logo.EndInit();
 					pics[i].Source = logo;
 				}
@@ -99,6 +105,18 @@ namespace Zyrenth.ZoraGen.Wpf
 			{
 				pic.Source = null;
 			}
+		}
+
+		private void CopySecret_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+		{
+			e.CanExecute = true;
+			e.Handled = true;
+		}
+
+		private void CopySecret_Executed(object sender, ExecutedRoutedEventArgs e)
+		{
+			string s = SecretParser.CreateString(_secret, _region);
+			System.Windows.Clipboard.SetText(s);
 		}
 
 	}
