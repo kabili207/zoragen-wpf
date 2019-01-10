@@ -200,8 +200,11 @@
     <Resource Include="..\Images\Rings\*">
       <Link>Images\Rings\%(FileName)%(Extension)</Link>
     </Resource>
-    <Resource Include="..\Images\Symbols\*">
-      <Link>Images\Symbols\%(FileName)%(Extension)</Link>
+    <Resource Include="..\Images\Symbols_US\*">
+      <Link>Images\Symbols_US\%(FileName)%(Extension)</Link>
+    </Resource>
+    <Resource Include="..\Images\Symbols_JP\*">
+      <Link>Images\Symbols_JP\%(FileName)%(Extension)</Link>
     </Resource>
     <Resource Include="Images\exit.png" />
     <Resource Include="Images\filenew.png" />

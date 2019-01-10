@@ -1,4 +1,4 @@
-﻿<Window x:Class="Zyrenth.ZoraGen.Wpf.MainWindow"
+<Window x:Class="Zyrenth.ZoraGen.Wpf.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Zyrenth.ZoraGen.Wpf"
@@ -77,6 +77,12 @@
 			</MenuItem>
 		</Menu>
 		<Grid DataContext="{Binding Path=GameInfo, ElementName=window}" x:Name="grid" >
+			<GroupBox Header="Region" HorizontalAlignment="Left" Margin="23,5,0,0" VerticalAlignment="Top" Width="228" Height="47">
+				<Grid>
+					<local:EnumRadioButton x:Name="rdoRegionUS" EnumBinding="{Binding Region}" EnumValue="US" Content="US/PAL" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top"/>
+					<local:EnumRadioButton x:Name="rdoRegionJapan" EnumBinding="{Binding Region}" EnumValue="JP" Content="Japan" HorizontalAlignment="Left" Margin="97,7,0,0" VerticalAlignment="Top"/>
+				</Grid>
+			</GroupBox>
 			<GroupBox Header="Secret For..." Height="79" HorizontalAlignment="Left" Margin="23,52,0,0" Name="groupBox1" VerticalAlignment="Top" Width="111">
 				<Grid>
 					<Image Height="20" HorizontalAlignment="Left" Margin="6,6,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="20" Source="Images\Characters\Nayru.gif" />
@@ -147,12 +153,6 @@
 			<Button x:Name="btnNoRings" Content="None" HorizontalAlignment="Right" Margin="0,4,6,0" VerticalAlignment="Top" Width="46" Click="btnNoRings_Click"/>
 			<Image Height="18" HorizontalAlignment="Left" Margin="0,0,0,0" Stretch="Fill" VerticalAlignment="Bottom" Width="18" Source="Images\Characters\SpinyBeetle.png"
 				   Visibility="{Binding DebugMode, ElementName=window, Converter={StaticResource BoolVisibilityConverter}}"/>
-			<GroupBox Header="Region" HorizontalAlignment="Left" Margin="23,5,0,0" VerticalAlignment="Top" Width="228" Height="47">
-				<Grid>
-					<local:EnumRadioButton x:Name="rdoRegionUS" EnumBinding="{Binding Region}" EnumValue="US" Content="US/PAL" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top"/>
-					<local:EnumRadioButton x:Name="rdoRegionJapan" EnumBinding="{Binding Region}" EnumValue="JP" Content="Japan" IsEnabled="False" HorizontalAlignment="Left" Margin="97,7,0,0" VerticalAlignment="Top"/>
-				</Grid>
-			</GroupBox>
 			<CheckBox x:Name="chkFreeRing" Content="Free Ring Given" IsChecked="{Binding WasGivenFreeRing}" HorizontalAlignment="Left" Margin="266,0,0,10" VerticalAlignment="Bottom"/>
 		</Grid>
 	</DockPanel>

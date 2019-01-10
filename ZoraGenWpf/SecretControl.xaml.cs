@@ -1,7 +1,7 @@
-﻿/*
+/*
  * Copyright © 2013-2018, Amy Nagle.
  * All rights reserved.
- * 
+ *
  * This file is part of ZoraGen WPF.
  *
  * ZoraGen WPF is free software: you can redistribute it and/or modify
@@ -13,7 +13,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with ZoraGen WPF.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -55,7 +55,7 @@ namespace Zyrenth.ZoraGen.Wpf
 			DependencyProperty.Register("LargeDisplay", typeof(bool), typeof(SecretControl), new PropertyMetadata(true));
 		private Image[] pics;
 
-		
+
 		public SecretControl()
 		{
 			InitializeComponent();
@@ -66,12 +66,12 @@ namespace Zyrenth.ZoraGen.Wpf
 			};
 		}
 
-		public void SetSecret(Secret secret)
+		public void SetSecret(Secret secret, GameRegion region)
 		{
-			SetSecret(secret.ToBytes());
+			SetSecret(secret.ToBytes(), region);
 		}
 
-		public void SetSecret(byte[] secret)
+		public void SetSecret(byte[] secret, GameRegion region)
 		{
 			Reset();
 			for (int i = 0; i < secret.Length && i < pics.Length; i++)
@@ -86,7 +86,7 @@ namespace Zyrenth.ZoraGen.Wpf
 
 					var logo = new BitmapImage();
 					logo.BeginInit();
-					logo.UriSource = new Uri(string.Format("Images/Symbols/{0}.png", num), UriKind.Relative);
+					logo.UriSource = new Uri(string.Format("Images/Symbols_{1}/{0}.png", num, region), UriKind.Relative);
 					logo.EndInit();
 					pics[i].Source = logo;
 				}

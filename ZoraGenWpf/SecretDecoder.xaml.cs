@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright © 2013-2018, Amy Nagle.
  * All rights reserved.
  *
@@ -47,27 +47,21 @@ namespace Zyrenth.ZoraGen.Wpf
 
 		public enum SecretType { Game, Ring, Memory }
 
-		public SecretType Mode = SecretType.Game;
+		public SecretType Mode;
 
 		public GameInfo GameInfo { get; set; }
 
 		public bool DebugMode { get; set; }
 
 		public SecretDecoder()
-			: this(SecretType.Game, GameRegion.US)
-		{
-
-		}
-		public SecretDecoder(GameRegion region)
-			: this(SecretType.Game, region)
+			: this(SecretType.Game)
 		{
 
 		}
 
-		public SecretDecoder(SecretType mode, GameRegion region)
+		public SecretDecoder(SecretType mode)
 		{
 			InitializeComponent();
-			_region = region;
 			switch (mode)
 			{
 				case SecretType.Game:
@@ -92,6 +86,9 @@ namespace Zyrenth.ZoraGen.Wpf
 
 		private void SymbolButton_Click(object sender, RoutedEventArgs e)
 		{
+			// We do not have a JP keyboard
+			_region = GameRegion.US;
+
 			Control ctl = sender as Control;
 			if (ctl != null)
 			{
@@ -101,13 +98,13 @@ namespace Zyrenth.ZoraGen.Wpf
 				if (currentPic >= _secretLength)
 				{
 					data[_secretLength - 1] = id;
-					uxSecretDisplay.SetSecret(data);
+					uxSecretDisplay.SetSecret(data, _region);
 				}
 				else
 				{
 					data[currentPic] = id;
 					currentPic++;
-					uxSecretDisplay.SetSecret(data.Take(currentPic).ToArray());
+					uxSecretDisplay.SetSecret(data.Take(currentPic).ToArray(), _region);
 				}
 
 				txtSymbols.Text = SecretParser.CreateString(data.Take(currentPic).ToArray(), _region);
@@ -125,7 +122,7 @@ namespace Zyrenth.ZoraGen.Wpf
 		{
 			if (currentPic > 0)
 				currentPic--;
-			uxSecretDisplay.SetSecret(data.Take(currentPic).ToArray());
+			uxSecretDisplay.SetSecret(data.Take(currentPic).ToArray(), _region);
 			txtSymbols.Text = SecretParser.CreateString(data.Take(currentPic).ToArray(), _region);
 		}
 
@@ -134,31 +131,31 @@ namespace Zyrenth.ZoraGen.Wpf
 			try
 			{
 				if (GameInfo == null)
-					GameInfo = new GameInfo();
+					GameInfo = new GameInfo() { Region = _region };
 				var trimmedData = data.Take(currentPic.Clamp(0, _secretLength)).ToArray();
 
 				switch (Mode)
 				{
 					case SecretType.Game:
-						GameSecret gs = new GameSecret(_region);
-						gs.Load(trimmedData);
+						GameSecret gs = new GameSecret();
+						gs.Load(trimmedData, _region);
 						gs.UpdateGameInfo(GameInfo);
 						break;
 					case SecretType.Ring:
-						RingSecret rs = new RingSecret(_region);
-						rs.Load(trimmedData);
+						RingSecret rs = new RingSecret();
+						rs.Load(trimmedData, _region);
 						rs.UpdateGameInfo(GameInfo, chkAppendRings.IsChecked == true);
 						break;
 					case SecretType.Memory:
-						MemorySecret ms = new MemorySecret(_region);
-						ms.Load(trimmedData);
+						MemorySecret ms = new MemorySecret();
+						ms.Load(trimmedData, _region);
 						// Now what?
 						break;
 				}
 
 				this.Close();
 			}
-			catch (InvalidSecretException ex)
+			catch (SecretException ex)
 			{
 				MessageBox.Show(ex.Message, "Invalid Secret", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
@@ -174,22 +171,36 @@ namespace Zyrenth.ZoraGen.Wpf
 			if (rdoEntryText.IsChecked == false)
 				return;
 
+			byte[] parsedSecret = null;
 			try
 			{
-				byte[] parsedSecret = SecretParser.ParseSecret(txtSymbols.Text, _region);
-				byte[] trimmedData = parsedSecret.Take(parsedSecret.Length.Clamp(0, _secretLength)).ToArray();
-
-				uxSecretDisplay.SetSecret(trimmedData);
-
-				for (int i = 0; i < trimmedData.Length; ++i)
-				{
-					data[i] = trimmedData[i];
-				}
-
-				currentPic = (trimmedData.Length).Clamp(0, _secretLength);
-
+				parsedSecret = SecretParser.ParseSecret(txtSymbols.Text, GameRegion.US);
+				_region = GameRegion.US;
 			}
-			catch (InvalidSecretException) { }
+			catch (SecretException)
+			{
+				try
+				{
+					parsedSecret = SecretParser.ParseSecret(txtSymbols.Text, GameRegion.JP);
+					_region = GameRegion.JP;
+				}
+				catch (SecretException) { /* Not parsable in either region */ }
+			}
+
+			if (parsedSecret == null)
+				return;
+
+			byte[] trimmedData = parsedSecret.Take(parsedSecret.Length.Clamp(0, _secretLength)).ToArray();
+
+			uxSecretDisplay.SetSecret(trimmedData, _region);
+
+			for (int i = 0; i < trimmedData.Length; ++i)
+			{
+				data[i] = trimmedData[i];
+			}
+
+			currentPic = ( trimmedData.Length ).Clamp(0, _secretLength);
+
 		}
 
 	}

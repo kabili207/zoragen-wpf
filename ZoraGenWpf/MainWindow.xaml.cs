@@ -127,7 +127,7 @@ namespace Zyrenth.ZoraGen.Wpf
 
 		private void miSecretsGame_Click(object sender, RoutedEventArgs e)
 		{
-			SecretDecoder decoder = new SecretDecoder(GameInfo.Region);
+			SecretDecoder decoder = new SecretDecoder();
 			decoder.Mode = SecretDecoder.SecretType.Game;
 			decoder.Owner = this;
 			decoder.GameInfo = GameInfo;
@@ -137,7 +137,7 @@ namespace Zyrenth.ZoraGen.Wpf
 
 		private void miSecretsRing_Click(object sender, RoutedEventArgs e)
 		{
-			SecretDecoder decoder = new SecretDecoder(SecretDecoder.SecretType.Ring, GameInfo.Region);
+			SecretDecoder decoder = new SecretDecoder(SecretDecoder.SecretType.Ring);
 			decoder.Owner = this;
 			decoder.GameInfo = GameInfo;
 			decoder.DebugMode = DebugMode;
