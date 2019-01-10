@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright © 2013-2018, Amy Nagle.
  * All rights reserved.
  *
@@ -72,6 +72,7 @@ namespace Zyrenth.ZoraGen.Wpf
 		public static readonly DependencyProperty DebugModeProperty =
 			DependencyProperty.Register("DebugMode", typeof(bool), typeof(MainWindow), new UIPropertyMetadata(false));
 
+#pragma warning disable S3963 // "static" fields should be initialized inline
 		static MainWindow()
 		{
 			Type ringType = typeof(Rings);
@@ -88,6 +89,7 @@ namespace Zyrenth.ZoraGen.Wpf
 			}).Where(x => x != null).OrderBy(x => (ulong)x.EnumValue).ToList();
 
 		}
+#pragma warning restore S3963 // "static" fields should be initialized inline
 
 		public MainWindow()
 		{
@@ -147,6 +149,14 @@ namespace Zyrenth.ZoraGen.Wpf
 		private void miSecretsGenerate_Click(object sender, RoutedEventArgs e)
 		{
 			GenerateSecrets();
+		}
+
+		private void miSecretsCalcBehavior_Click(object sender, RoutedEventArgs e)
+		{
+			var calculator = new BehaviorCalculator(GameInfo) {
+				Owner = this
+			};
+			calculator.ShowDialog();
 		}
 
 		private void miHelpAbout_Click(object sender, RoutedEventArgs e)
@@ -297,6 +307,5 @@ namespace Zyrenth.ZoraGen.Wpf
 
 			CheckForUpdates(true);
 		}
-
 	}
 }

@@ -1,0 +1,47 @@
+<Window x:Class="Zyrenth.ZoraGen.Wpf.BehaviorCalculator"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zyrenth.ZoraGen.Wpf"
+        xmlns:oracle="clr-namespace:Zyrenth.Zora;assembly=ZoraSharp"
+        mc:Ignorable="d"
+        Title="Behavior Calculator" Height="283" Width="291" Icon="Farore.ico" WindowStartupLocation="CenterOwner">
+	<Grid>
+		<GroupBox Header="Money for medicine" HorizontalAlignment="Left" Height="100" Margin="10,38,0,0" VerticalAlignment="Top" Width="128">
+			<UniformGrid x:Name="ugRupeesGiven" Columns="1" Rows="4">
+				<RadioButton Content="150 Rupees" GroupName="RupeesGiven" Tag="OneHundredFifty" Checked="RadioButton_Checked" />
+				<RadioButton Content="50 Rupees" GroupName="RupeesGiven" Tag="Fifty" Checked="RadioButton_Checked" />
+				<RadioButton Content="10 Rupees" GroupName="RupeesGiven" Tag="Ten" Checked="RadioButton_Checked"/>
+				<RadioButton Content="1 Rupee" GroupName="RupeesGiven" Tag="One" Checked="RadioButton_Checked" />
+			</UniformGrid>
+		</GroupBox>
+		<GroupBox Header="Help Sleep" HorizontalAlignment="Left" Height="61" Margin="10,143,0,0" VerticalAlignment="Top" Width="128">
+			<UniformGrid x:Name="ugSleepMethod" Columns="1" Rows="2">
+				<RadioButton Content="Sing" GroupName="SleepMethod" Tag="Sing" Checked="RadioButton_Checked" />
+				<RadioButton Content="Play" GroupName="SleepMethod" Tag="Play" Checked="RadioButton_Checked" />
+			</UniformGrid>
+		</GroupBox>
+		<GroupBox Header="What Kind of Child" HorizontalAlignment="Left" Height="100" Margin="143,38,0,0" VerticalAlignment="Top" Width="128">
+			<UniformGrid x:Name="ugKindOfChild" Columns="1" Rows="4">
+				<RadioButton Content="Hyperactive" GroupName="KindOfChild" Tag="Hyperactive" Checked="RadioButton_Checked" />
+				<RadioButton Content="Quiet" GroupName="KindOfChild" Tag="Quiet" Checked="RadioButton_Checked" />
+				<RadioButton Content="Weird" GroupName="KindOfChild" Tag="Weird" Checked="RadioButton_Checked" />
+				<RadioButton Content="None" GroupName="KindOfChild" Tag="None" Checked="RadioButton_Checked" />
+			</UniformGrid>
+		</GroupBox>
+		<GroupBox Header="Child's Question" HorizontalAlignment="Left" Height="61" Margin="143,143,0,0" VerticalAlignment="Top" Width="128">
+			<UniformGrid x:Name="ugChildQuestion" Columns="1" Rows="2">
+				<RadioButton Content="Yes/Chicken" GroupName="ChildQuestion" Tag="YesOrChicken" Checked="RadioButton_Checked" />
+				<RadioButton Content="No/Egg" GroupName="ChildQuestion" Tag="NoOrEgg" Checked="RadioButton_Checked" />
+			</UniformGrid>
+		</GroupBox>
+		<TextBlock HorizontalAlignment="Left" Margin="10,14,0,0" TextWrapping="Wrap" Text="Child's Name" VerticalAlignment="Top"/>
+		<TextBox x:Name="txtChildName" HorizontalAlignment="Left" Height="23" Margin="85,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="txtChildName_TextChanged"/>
+		<TextBlock HorizontalAlignment="Left" Margin="10,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top">
+			<Run>Behavior: </Run> <Run Text="{Binding CalculatedBehavior}" /><LineBreak />
+			<Run>Behavior value: </Run> <Run Text="{Binding CalculatedTotal}" />
+		</TextBlock>
+
+	</Grid>
+</Window>

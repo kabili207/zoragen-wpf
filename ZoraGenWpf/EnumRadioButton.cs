@@ -1,7 +1,7 @@
-﻿/*
+/*
  * Copyright © 2013-2018, Amy Nagle.
  * All rights reserved.
- * 
+ *
  * This file is part of ZoraGen WPF.
  *
  * ZoraGen WPF is free software: you can redistribute it and/or modify
@@ -13,7 +13,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with ZoraGen WPF.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -59,9 +59,9 @@ namespace Zyrenth.ZoraGen.Wpf
                                 "EnumBinding = {1}, " +
                                 "EnumValue = {2}, " +
                                 "ArgumentException {3}",
-                                Name, 
-                                EnumBinding, 
-                                EnumValue, 
+                                Name,
+                                EnumBinding,
+                                EnumValue,
                                 exception));
 
                         throw;
@@ -91,9 +91,9 @@ namespace Zyrenth.ZoraGen.Wpf
                             "EnumBinding = {1}, " +
                             "EnumValue = {2}, " +
                             "ArgumentException {3}",
-                            Name, 
-                            EnumBinding, 
-                            EnumValue, 
+                            Name,
+                            EnumBinding,
+                            EnumValue,
                             exception));
 
                     throw;
@@ -138,7 +138,7 @@ namespace Zyrenth.ZoraGen.Wpf
 
             get
             {
-                return (object)GetValue(EnumBindingProperty);
+                return GetValue(EnumBindingProperty);
             }
         }
 
