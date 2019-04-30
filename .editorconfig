@@ -294,7 +294,7 @@ dotnet_naming_style.prefix_interface_interface_with_i_style.capitalization = pas
 dotnet_naming_style.prefix_interface_interface_with_i_style.required_prefix = I
 
 # disallowed_by_design_guidelines - use to auto-format items that are disallowed by the design guidelines
-dotnet_naming_style.prefix_with_underscore_style.capitalization = pascal_case
+dotnet_naming_style.prefix_with_underscore_style.capitalization = camal_case
 dotnet_naming_style.prefix_with_underscore_style.required_prefix = _
 
 # disallowed_by_design_guidelines - use to auto-format items that are disallowed by the design guidelines
@@ -326,7 +326,7 @@ dotnet_naming_rule.public_static_readonly_fields_rule.severity = warning
 # https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-type-members
 # private fields can be per user preference
 dotnet_naming_rule.private_fields_rule.symbols  = private_fields
-dotnet_naming_rule.private_fields_rule.style    = camel_case_style # e.g., camel_case_style and prefix_with_underscore_style
+dotnet_naming_rule.private_fields_rule.style    = prefix_with_underscore_style # e.g., camel_case_style and prefix_with_underscore_style
 dotnet_naming_rule.private_fields_rule.severity = warning
 
 # private method, property, event, delegate
