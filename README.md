@@ -1,5 +1,4 @@
-# ZoraGen WPF [![Build status](https://ci.appveyor.com/api/projects/status/4nx3t458jl4ih9kf/branch/master?svg=true)](https://ci.appveyor.com/project/kabili207/zoragen-wpf/branch/master)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkabili207%2Fzoragen-wpf.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkabili207%2Fzoragen-wpf?ref=badge_shield)
+# ZoraGen WPF [![Build status](https://ci.appveyor.com/api/projects/status/4nx3t458jl4ih9kf/branch/master?svg=true)](https://ci.appveyor.com/project/kabili207/zoragen-wpf/branch/master) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkabili207%2Fzoragen-wpf.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkabili207%2Fzoragen-wpf?ref=badge_shield)
 
 A generator and decoder for the password system used in the Legend of Zelda Oracle of Ages and Oracle of Seasons games.
 Built using the [ZoraSharp](https://github.com/kabili207/zora-sharp) library.
