@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright © 2013-2018, Amy Nagle.
  * All rights reserved.
  *
@@ -39,7 +39,7 @@ namespace Zyrenth.ZoraGen.Wpf
 	/// </summary>
 	public partial class ViewSecretsWindow : Window
 	{
-		GameInfo _info;
+		private GameInfo _info;
 
 		public ViewSecretsWindow()
 		{

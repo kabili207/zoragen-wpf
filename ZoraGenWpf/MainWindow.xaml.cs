@@ -183,7 +183,7 @@ namespace Zyrenth.ZoraGen.Wpf
 				Extensions.SetAllowUnsafeHeaderParsing();
 
 				// GitHub requires a user agent
-				((HttpWebRequest)request).UserAgent = "ZoraGen updater";
+				( (HttpWebRequest)request ).UserAgent = "ZoraGen updater";
 
 
 				using (Stream objStream = request.GetResponse().GetResponseStream())

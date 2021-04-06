@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright © 2013-2018, Amy Nagle.
  * All rights reserved.
  * 
@@ -30,7 +30,7 @@ using Zyrenth.Zora;
 
 namespace Zyrenth.ZoraGen.Wpf
 {
-	class RingImageConverter : IValueConverter
+	internal class RingImageConverter : IValueConverter
 	{
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
