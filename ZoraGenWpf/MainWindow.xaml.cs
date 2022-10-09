@@ -177,10 +177,10 @@ namespace Zyrenth.ZoraGen.Wpf
 			try
 			{
 				string sURL;
-				sURL = "https://api.github.com/repos/kabili207/oracle-of-secrets-win/releases";
+				sURL = "https://api.github.com/repos/kabili207/zoragen-wpf/releases";
 
 				WebRequest request = WebRequest.Create(sURL);
-				Extensions.SetAllowUnsafeHeaderParsing();
+				//Extensions.SetAllowUnsafeHeaderParsing();
 
 				// GitHub requires a user agent
 				( (HttpWebRequest)request ).UserAgent = "ZoraGen updater";

@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2013 Max Hauser 
+/* Copyright (c) 2013 Max Hauser 
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -34,7 +34,7 @@ namespace Zyrenth.ZoraGen.Wpf
     [Serializable]
     public sealed class SemanticVersion : IComparable<SemanticVersion>, IComparable, ISerializable
     {
-        static Regex parseEx =
+        private static readonly Regex parseEx =
             new Regex(@"^(?<major>\d+)" +
                 @"(\.(?<minor>\d+))?" +
                 @"(\.(?<patch>\d+))?" +
@@ -351,7 +351,7 @@ namespace Zyrenth.ZoraGen.Wpf
             return r;
         }
 
-        static int CompareComponent(string a, string b, bool lower = false)
+        private static int CompareComponent(string a, string b, bool lower = false)
         {
             var aEmpty = String.IsNullOrEmpty(a);
             var bEmpty = String.IsNullOrEmpty(b);
