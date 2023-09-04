@@ -59,7 +59,7 @@ namespace Zyrenth.ZoraGen.Wpf
 
 			if (_info.IsLinkedGame)
 			{
-				bool returnSecret = true;
+				bool returnSecret = false;
 				uxMemSecret01.SetSecret(new MemorySecret(_info, Memory.ClockShopKingZora, returnSecret), _info.Region);
 				uxMemSecret02.SetSecret(new MemorySecret(_info, Memory.GraveyardFairy, returnSecret), _info.Region);
 				uxMemSecret03.SetSecret(new MemorySecret(_info, Memory.SubrosianTroy, returnSecret), _info.Region);
@@ -70,10 +70,24 @@ namespace Zyrenth.ZoraGen.Wpf
 				uxMemSecret08.SetSecret(new MemorySecret(_info, Memory.DekuTingle, returnSecret), _info.Region);
 				uxMemSecret09.SetSecret(new MemorySecret(_info, Memory.BiggoronElder, returnSecret), _info.Region);
 				uxMemSecret10.SetSecret(new MemorySecret(_info, Memory.RuulSymmetry, returnSecret), _info.Region);
+
+				returnSecret = true;
+				uxMemReturnSecret01.SetSecret(new MemorySecret(_info, Memory.ClockShopKingZora, returnSecret), _info.Region);
+				uxMemReturnSecret02.SetSecret(new MemorySecret(_info, Memory.GraveyardFairy, returnSecret), _info.Region);
+				uxMemReturnSecret03.SetSecret(new MemorySecret(_info, Memory.SubrosianTroy, returnSecret), _info.Region);
+				uxMemReturnSecret04.SetSecret(new MemorySecret(_info, Memory.DiverPlen, returnSecret), _info.Region);
+				uxMemReturnSecret05.SetSecret(new MemorySecret(_info, Memory.SmithLibrary, returnSecret), _info.Region);
+				uxMemReturnSecret06.SetSecret(new MemorySecret(_info, Memory.PirateTokay, returnSecret), _info.Region);
+				uxMemReturnSecret07.SetSecret(new MemorySecret(_info, Memory.TempleMamamu, returnSecret), _info.Region);
+				uxMemReturnSecret08.SetSecret(new MemorySecret(_info, Memory.DekuTingle, returnSecret), _info.Region);
+				uxMemReturnSecret09.SetSecret(new MemorySecret(_info, Memory.BiggoronElder, returnSecret), _info.Region);
+				uxMemReturnSecret10.SetSecret(new MemorySecret(_info, Memory.RuulSymmetry, returnSecret), _info.Region);
 			}
 
 			if (_info.Game == Game.Ages)
 			{
+				lblSecretGame.Text = "Seasons";
+				lblReturnGame.Text = "Ages";
 				lblMem01.Text = "Clock Shop";
 				lblMem02.Text = "Graveyard";
 				lblMem03.Text = "Subrosian";
@@ -87,6 +101,8 @@ namespace Zyrenth.ZoraGen.Wpf
 			}
 			else
 			{
+				lblSecretGame.Text = "Ages";
+				lblReturnGame.Text = "Seasons";
 				lblMem01.Text = "King Zora";
 				lblMem02.Text = "Fairy";
 				lblMem03.Text = "Troy";

@@ -180,7 +180,6 @@ namespace Zyrenth.ZoraGen.Wpf
 				sURL = "https://api.github.com/repos/kabili207/zoragen-wpf/releases";
 
 				WebRequest request = WebRequest.Create(sURL);
-				//Extensions.SetAllowUnsafeHeaderParsing();
 
 				// GitHub requires a user agent
 				( (HttpWebRequest)request ).UserAgent = "ZoraGen updater";
