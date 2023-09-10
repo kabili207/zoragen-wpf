@@ -70,9 +70,9 @@ namespace Zyrenth.ZoraGen.Wpf
 			};
 		}
 
-		public void SetSecret(Secret secret, GameRegion region)
+		public void SetSecret(Secret secret)
 		{
-			SetSecret(secret.ToBytes(), region);
+			SetSecret(secret.ToBytes(), secret.Region);
 		}
 
 		public void SetSecret(byte[] secret, GameRegion region)

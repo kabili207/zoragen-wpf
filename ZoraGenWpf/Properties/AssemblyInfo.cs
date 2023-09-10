@@ -32,7 +32,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ZoraGen WPF")]
-[assembly: AssemblyCopyright("Copyright © Amy Nagle 2013 - 2021")]
+[assembly: AssemblyCopyright("Copyright © Amy Nagle 2013 - 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
