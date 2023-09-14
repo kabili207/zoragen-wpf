@@ -59,7 +59,7 @@ namespace Zyrenth.ZoraGen.Wpf
 
 			if (_info.IsLinkedGame)
 			{
-				Game game = _info.Game == Game.Ages ? Game.Seasons : Game.Seasons;
+				Game game = _info.Game == Game.Ages ? Game.Seasons : Game.Ages;
 				GameRegion region = _info.Region;
 				short gameId = _info.GameID;
 
