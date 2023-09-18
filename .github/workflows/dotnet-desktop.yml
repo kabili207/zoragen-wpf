@@ -36,7 +36,7 @@ jobs:
     #  run: dotnet test
 
     - name: Publish
-      run: dotnet publish -c Release -o out ZoraGenWpf.sln
+      run: dotnet publish -c Release -o out -r win-x86 --self-contained false ZoraGenWpf.sln
 
     - name: Upload Build Artifact
       uses: actions/upload-artifact@v3
