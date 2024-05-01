@@ -15,7 +15,7 @@ Built using the [ZoraSharp](https://github.com/kabili207/zora-sharp) library.
  * Include a debugging screen to get raw information about secrets
 
 ### Special Thanks
- * Paulygon - Created the [original secret generator](http://home.earthlink.net/~paul3/zeldagbc.html) way back in 2001
+ * Paulygon - Created the [original secret generator](https://web.archive.org/web/20190204090345/http://home.earthlink.net/~paul3/zeldagbc.html) way back in 2001
  * 39ster - Rediscovered [how to decode game secrets](http://www.gamefaqs.com/boards/472313-the-legend-of-zelda-oracle-of-ages/66934363) using paulygon's program
  * [LunarCookies](https://github.com/LunarCookies) - Discovered the correct cipher and checksum logic used to generate secrets
 
